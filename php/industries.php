@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $fp = fopen($file, 'a');
     fputcsv($fp, [date("Y-m-d H:i:s"), $name, $userEmail, $phone, $industry, $message]);
-    fclose($fp);
+    fclose(stream: $fp);
 
     // ===== SMTP settings =====
     $smtpUser = 'tusharnagare7875@gmail.com'; // 👈 Gmail
