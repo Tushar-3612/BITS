@@ -199,3 +199,17 @@
                 flex-direction: column;
             }
         }
+ 
+.loader {
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.countdown {
+  font-size: 24px;
+  font-weight: bold;
+  animation: none;
+}
+ 
+

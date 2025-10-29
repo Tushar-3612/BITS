@@ -14,7 +14,7 @@
 
     <style>
         /* Balvirt Contact Form Styles */
-        .balvirt-body {
+        /* .balvirt-body {
             background-color: #f5f7fa;
             color: #333;
             line-height: 1.6;
@@ -118,109 +118,24 @@
             border-radius: 8px;
             margin-top: 15px;
             border: none;
-        }
+        } */
 
         /* Modal Styles */
-        .balvirt-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 10000;
-            align-items: center;
-            justify-content: center;
-        }
+         
+        
+.loader {
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+}
 
-        .balvirt-modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
+.countdown {
+  font-size: 24px;
+  font-weight: bold;
+  animation: none;
+}
+ 
 
-        .balvirt-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
-            cursor: pointer;
-            color: #aaa;
-            z-index: 10001;
-        }
-
-        .balvirt-close-btn:hover {
-            color: #000;
-        }
-
-        .balvirt-modal-title {
-            color: #001f3f;
-            margin-bottom: 20px;
-        }
-
-        .balvirt-hidden {
-            display: none !important;
-        }
-
-        .balvirt-success-msg {
-            color: #28a745;
-            margin-top: 10px;
-            padding: 15px;
-            background-color: #f8fff9;
-            border-radius: 5px;
-            border-left: 4px solid #28a745;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .balvirt-form-group {
-            margin-bottom: 20px;
-        }
-
-        .balvirt-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #001f3f;
-        }
-
-        .balvirt-portfolio-option {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .balvirt-portfolio-radio {
-            width: auto;
-            margin-right: 10px;
-            margin-bottom: 0;
-        }
-
-        .balvirt-portfolio-field {
-            margin-top: 10px;
-        }
-
-        .balvirt-portfolio-label {
-            display: inline;
-            font-weight: normal;
-        }
-
-        .balvirt-help-text {
-            color: #666;
-            font-size: 14px;
-        }
-
-        @media (max-width: 768px) {
-            .balvirt-contact-section {
-                flex-direction: column;
-            }
-        }
     </style>
 </head>
 <!-- Navigation Bar - CSS removed as requested -->
@@ -342,29 +257,37 @@
         <section class="balvirt-contact-section">
             <!-- Contact Form -->
             <div class="balvirt-contact-form-box">
-                <h3 class="balvirt-section-title"> <b><span style='color:#0074D9;'>  Say something amazing — we’re listening</b></span></h3>
+                <h3 class="balvirt-section-title"> <b><span style='color:#0074D9;'> Say something amazing — we’re
+                            listening</b></span></h3>
 
                 <!-- Contact Form -->
-                <form name="contact" method="POST" netlify="true" class="balvirt-contact-form" id="contactForm">
-                    <input type="hidden" name="form-name" value="contact">
+               <!-- Contact Form -->
+<form id="contactForm" class="balvirt-contact-form" novalidate>
 
-                    <input type="text" name="name" placeholder="Your Name" class="balvirt-input" required>
-                    <input type="email" name="email" placeholder="Your Email" class="balvirt-input" required>
-                    <input type="text" name="phone" placeholder="Phone Number" class="balvirt-input" required>
-                    <textarea name="message" rows="4" placeholder="Your Message" class="balvirt-textarea"
-                        required></textarea>
-                    <button type="submit" class="balvirt-btn balvirt-submit-btn">Send Message</button>
-                </form>
+  <input type="text" name="name" placeholder="Your Name" class="balvirt-input" required>
+  <input type="email" name="email" placeholder="Your Email" class="balvirt-input" required>
+  <input type="text" name="phone" placeholder="Phone Number" class="balvirt-input" required>
+  <textarea name="message" rows="4" placeholder="Your Message" class="balvirt-textarea" required></textarea>
 
-                <p id="contactMsg" class="balvirt-success-msg balvirt-hidden">
-                    <i class="fas fa-check-circle"></i> Thank you for your message! We will get back to you soon.
-                </p>
-                <!-- <button id="openHireForm" class="balvirt-btn balvirt-hire-btn">Apply for Job</button> -->
+  <button type="submit" class="balvirt-btn balvirt-submit-btn">Send Message</button>
+
+  <div class="loader" id="loader">
+    <div class="countdown" id="countdown">15</div>
+  </div>
+
+  <p id="successMsg"></p>
+</form>
+
+
+
+ 
+                 
             </div>
 
             <!-- Contact Info -->
             <div class="balvirt-contact-info-box">
-                <h3 class="balvirt-section-title"><span style='color:#0074D9;'> Get in touch through the details below.</span></h3>
+                <h3 class="balvirt-section-title"><span style='color:#0074D9;'> Get in touch through the details
+                        below.</span></h3>
                 <p class="balvirt-contact-info-item"><b>Address:</b> Hirai Estate, Adarshnagar, Ghulewadi Tal-Sangamner,
                     Dist-Ahilyanagar, Pin-422605</p>
                 <p class="balvirt-contact-info-item"><b>Email:</b> <a href="mailto:contact@balvirt.com"
@@ -384,7 +307,7 @@
 
     <script>
         // Wait for DOM to be fully loaded
-        
+
     </script>
     <!-- Footer
  Footer Section -->
@@ -518,16 +441,92 @@
                             <p id="footer" style="text-align: center;">&copy; 2025 Balvirt </p>
                         </div>
                     </div>
-                    
+
 
                     <!-- Scroll to Top Button -->
                     <button class="scroll-to-top">
                         <i class="fas fa-chevron-up"></i>
                     </button>
+                     <script>
+const form = document.getElementById('contactForm');
+const loader = document.getElementById('loader');
+const successMsg = document.getElementById('successMsg');
+const countdownEl = document.getElementById('countdown');
+const nameInput = form.querySelector('input[name="name"]');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  loader.style.display = 'block';
+  successMsg.style.display = 'none';
+
+  let count = 15;
+  let stoppedEarly = false;
+
+  const colorMap = [
+    "#ff0000", "#ff3b00", "#ff5e00", "#ff7f00", "#ffa200",
+    "#ffbf00", "#e3d400", "#c6e300", "#8de300", "#5fe300",
+    "#37e300", "#1fe34f", "#0ee380", "#09e3b0", "#00e3d4"
+  ];
+
+  countdownEl.textContent = count;
+  countdownEl.style.color = colorMap[0];
+
+  const timer = setInterval(() => {
+    if (!stoppedEarly) {
+      count--;
+      if (count > 0) {
+        countdownEl.textContent = count;
+        countdownEl.style.color = colorMap[15 - count];
+      } else {
+        clearInterval(timer);
+      }
+    }
+  }, 1000);
+
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch('php/contact.php', {
+      method: 'POST',
+      body: formData
+    });
+
+    const result = await response.text();
+    console.log("Server Response:", result);
+
+    stoppedEarly = true;
+    clearInterval(timer);
+    loader.style.display = 'none';
+
+    const username = nameInput.value.trim() || "User";
+    if (result.trim().toLowerCase() === "success") {
+      successMsg.innerHTML = `✅ Thank you, <span style="color:#ffbf00;">${username}</span>! Your message has been sent successfully.`;
+      successMsg.style.color = "#28a745";
+    } else {
+      successMsg.innerHTML = "❌ Failed to send message. Try again.";
+      successMsg.style.color = "red";
+    }
+
+    successMsg.style.display = 'block';
+    form.reset();
+
+  } catch (error) {
+    stoppedEarly = true;
+    clearInterval(timer);
+    loader.style.display = 'none';
+    successMsg.style.display = 'block';
+    successMsg.style.color = 'red';
+    successMsg.textContent = "❌ Network error. Please try again.";
+    console.error("Error:", error);
+  }
+});
+</script>
 
                     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
                     <script src="script.js"></script>
                     <script src="js/newsletter.js"></script>
+                    
 </body>
 
 </html>
