@@ -1,0 +1,3 @@
+[2025-10-29 20:17:36] APPLICATION: Tushar Nagare (nagaretushar50@gmail.com) | POSITION: Quality Analyst | ADMIN_EMAIL: FAILED | CANDIDATE_EMAIL: FAILED | RESUME: 1761765452_My_Resume_3.pdf
+[2025-10-29 20:24:07] Adesh Nagare (nagaretushar50@gmail.com) - Full Stack Developer | Admin Email: No | Candidate Email: No
+[2025-10-29 20:33:19] APPLICATION: Tushar Nagare | EMAIL: tusharnagare2006@gmail.com | POSITION: Full Stack Developer | ADMIN_EMAIL: FAILED | CANDIDATE_EMAIL: FAILED | RESUME: 1761766396_ASSIGNMENT_NO-2_REPORT.pdf | IP: ::1

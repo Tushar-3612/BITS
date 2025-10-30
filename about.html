@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +11,177 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/about.css">
-     
+
+    <style>
+        /* Event Modal Styles */
+        .eventModal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+        }
+
+        .eventModal.show {
+            display: flex;
+        }
+
+        .eventModal-content {
+            position: relative;
+            width: min(95%, 900px);
+            background: #06152a;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .eventModal-img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.3s ease;
+        }
+
+        .eventModal-text {
+            padding: 16px;
+            color: white
+        }
+
+        .eventModal-text h2 {
+            margin: 0 0 6px;
+            font-size: 22px
+        }
+
+        .eventModal-date {
+            font-size: 13px;
+            opacity: .85;
+            margin-bottom: 10px
+        }
+
+        .eventModal-desc {
+            font-size: 14px;
+            opacity: .95;
+            line-height: 1.5
+        }
+
+        /* Controls */
+        .eventModal-close,
+        .eventModal-prev,
+        .eventModal-next {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .eventModal-close {
+            top: 10px;
+            right: 10px
+        }
+
+        .eventModal-prev {
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%)
+        }
+
+        .eventModal-next {
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%)
+        }
+
+        .eventModal-close:hover,
+        .eventModal-prev:hover,
+        .eventModal-next:hover {
+            background: rgba(0, 0, 0, 0.7)
+        }
+
+        /* Event Cards Styles */
+        .event-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .card {
+            width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #fff;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-title {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #06152a;
+        }
+
+        .card-date {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #444;
+            line-height: 1.4;
+        }
+        #hr{
+            border: none;
+  height: 4px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff7b00, #ffb347, #ef7b2d);
+  background-size: 300% 100%;
+  animation: moveGradient 4s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(239,123,45,0.6);
+  margin: 40px 0;
+}
+
+@keyframes moveGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
         
+    </style>
 </head>
 
 <body>
-     <nav class="navbar">
+    <nav class="navbar">
         <div class="nav-container">
             <div class="logo-section">
                 <img src="images/logo1.png" alt="Balvirt Logo" class="logo-img">
@@ -45,8 +211,7 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="technology.html" class="nav-link">Technology<i
-                            class="fas fa-chevron-down"></i></a>
+                    <a href="technology.html" class="nav-link">Technology<i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-content">
                         <a href="technology.html#netsuite">NetSuite</a>
                         <a href="technology.html#celigo">Celigo</a>
@@ -124,12 +289,15 @@
                             SMEs</strong> across India through technology-driven transformation.</p>
                     <p>We specialize in <strong class="highlight-green">Oracle NetSuite ERP</strong>, offering:</p>
                     <ul class="animated-list">
-                        <li class="list-item">Implementation, customization & optimization – streamline operations & reduce costs</li>
+                        <li class="list-item">Implementation, customization & optimization – streamline operations &
+                            reduce costs</li>
                         <li class="list-item">Seamless integrations (Celigo & third-party apps) – save hours weekly</li>
                         <li class="list-item">Application development & modernization – accelerate business growth</li>
-                        <li class="list-item">Managed IT & ERP services – focus on your business while we handle tech</li>
+                        <li class="list-item">Managed IT & ERP services – focus on your business while we handle tech
+                        </li>
                     </ul>
                 </div>
+                 
                 <div class="stats-container">
                     <div class="stats-circle" data-target="3">
                         <span class="stat-number">0</span>
@@ -145,7 +313,8 @@
                     </div>
                 </div>
             </div>
-            
+            <hr id="hr">
+
             <!-- Interactive Cards -->
             <div class="interactive-cards">
                 <div class="interactive-card">
@@ -153,153 +322,209 @@
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3 class="card-title">Fast Implementation</h3>
-                    <p class="card-description">Quick and efficient deployment of NetSuite solutions tailored to your business needs.</p>
+                    <p class="card-description">Quick and efficient deployment of NetSuite solutions tailored to your
+                        business needs.</p>
                 </div>
                 <div class="interactive-card">
                     <div class="card-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
                     <h3 class="card-title">Custom Solutions</h3>
-                    <p class="card-description">Tailored ERP solutions that fit your unique business processes and requirements.</p>
+                    <p class="card-description">Tailored ERP solutions that fit your unique business processes and
+                        requirements.</p>
                 </div>
                 <div class="interactive-card">
                     <div class="card-icon">
                         <i class="fas fa-headset"></i>
                     </div>
                     <h3 class="card-title">24/7 Support</h3>
-                    <p class="card-description">Round-the-clock technical support to ensure your systems run smoothly.</p>
+                    <p class="card-description">Round-the-clock technical support to ensure your systems run smoothly.
+                    </p>
                 </div>
             </div>
-            
-            <hr>
-            
-            <!-- Events Slider -->
+
+            <hr id="hr">
+
+            <!-- Events Section -->
             <h2 class="section-title" style="text-align: center; margin-top: 50px;">Balvirt Events & Celebrations</h2>
-            <div class="bv-slider-wrapper">
-                <div class="bv-slider-container">
-                    <div class="bv-slider-track">
-                        <div class="bv-slide-item active">
-                            <img src="images/teams/gr5_pc.jpg" alt="Festival Celebration" class="bv-slide-image">
-                            <div class="bv-slide-content">
-                                <h2 class="bv-slide-title">Office Events & Celebrations</h2>
-                                <p class="bv-slide-description">From festivals to special days, our workplace stays vibrant and full of positive energy throughout the year.</p>
-                            </div>
-                        </div>
-                        <div class="bv-slide-item">
-                            <img src="images/teams/gr2.jpg" alt="Team Celebration" class="bv-slide-image">
-                            <div class="bv-slide-content">
-                                <h2 class="bv-slide-title">Celebrating Achievements</h2>
-                                <p class="bv-slide-description">Every milestone, big or small, deserves recognition. We celebrate success as a team and encourage each other to aim higher</p>
-                            </div>
-                        </div>
-                        <div class="bv-slide-item">
-                            <img src="images/teams/gr3_with_men.jpg" alt="Team Gathering" class="bv-slide-image">
-                            <div class="bv-slide-content">
-                                <h2 class="bv-slide-title">Team Gathering</h2>
-                                <p class="bv-slide-description">Our team enjoys quality time together during events</p>
-                            </div>
-                        </div>
 
-                         <div class="bv-slide-item">
-                        <img src="images/teams/gr6_celebration_culture_days.jpg" alt="Office Event" class="bv-slide-image">
-                        <div class="bv-slide-content">
-                            <h2 class="bv-slide-title">Team Bonding Activities</h2>
-                            <p class="bv-slide-description"> Regular team activities strengthen collaboration, creativity, and unity within our organization.</p>
-                        </div>
+            <!-- Event Cards -->
+            <div class="event-cards">
+                <div class="card" data-event="dashera">
+                    <img src="images/teams/gr5_pc.jpg" alt="Dashera Celebration" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title" style="color: green;">Dashera Celebration 2025</h3>
+                        <div class="card-date"><b> October 02, 2025</b></div>
+                        <p class="card-desc"><b>Bal<span style='color:#0074D9;'>virt</b></span> family celebrated Dashera with great enthusiasm and togetherness.
+                            The entire office was beautifully decorated with lights and traditional designs. Team
+                            members wore ethnic attire and showcased cultural performances that filled the environment
+                            with festive joy.</p>
                     </div>
-                    <!-- <div class="bv-slide-item">
-                        <img src="images/teams/gr12communicate_with_industry_person.jpg" alt="Team Meeting" class="bv-slide-image">
-                        <div class="bv-slide-content">
-                            <h2 class="bv-slide-title">Team Meetings</h2>
-                            <p class="bv-slide-description">Productive meetings that drive innovation and success</p>
-                        </div>
-                    </div> -->
-                    <div class="bv-slide-item">
-                        <img src="images/teams/gr9_celebration_img.jpg" alt="Success Celebration" class="bv-slide-image">
-                        <div class="bv-slide-content">
-                            <h2 class="bv-slide-title">Success Celebration</h2>
-                            <p class="bv-slide-description">Celebrating our achievements and milestones together</p>
-                        </div>
-                    </div>
-                    <div class="bv-slide-item">
-                        <img src="images/teams/gr8_games.jpg" alt="Teamwork" class="bv-slide-image">
-                        <div class="bv-slide-content">
-                            <h2 class="bv-slide-title">Play Games And Enjoying</h2>
-                            <p class="bv-slide-description">Collaborate, compete, and celebrate success — teamwork becomes stronger when we enjoy the journey together.</p>
-                        </div>
-                    </div>
-                    <div class="bv-slide-item">
-                        <img src="images/teams/gr19.jpg" alt="Office Culture" class="bv-slide-image">
-                        <div class="bv-slide-content">
-                            <h2 class="bv-slide-title">Office Culture</h2>
-                            <p class="bv-slide-description">Building a positive and inclusive work environment</p>
-                        </div>
-                    </div>
-                    <!-- <div class="bv-slide-item">
-                        <img src="images/teams/gr10_productivity_communication.jpg" alt="Networking" class="bv-slide-image">
-                        <div class="bv-slide-content">
-                            <h2 class="bv-slide-title">Networking Events</h2>
-                            <p class="bv-slide-description">Connecting with industry professionals and partners</p>
-                        </div>
-                    </div> -->
-                    <div class="bv-slide-item">
-                        <img src="images/teams/gr4_team_discussion.jpg" alt="Training" class="bv-slide-image">
-                        <div class="bv-slide-content">
-                            <h2 class="bv-slide-title">Training Sessions</h2>
-                            <p class="bv-slide-description">Continuous learning and development for our team</p>
-                        </div>
-                    </div>
-                    <div class="bv-slide-item">
-                        <img src="images/teams/gr7_friendly_with_workers.jpg" alt="Corporate Event" class="bv-slide-image">
-                        <div class="bv-slide-content">
-                            <h2 class="bv-slide-title">Friendly with Team Members</h2>
-                            <p class="bv-slide-description">We believe in building strong relationships with every team member — celebrating victories together and learning from challenges as one.</p>
-                        </div>
-                    </div>
-                    <div class="bv-slide-item">
-                        <img src="images/teams/gr18_felisitation.jpg" alt="Award Ceremony" class="bv-slide-image">
-                        <div class="bv-slide-content">
-                            <h2 class="bv-slide-title">Award Ceremonies</h2>
-                            <p class="bv-slide-description">Recognizing and rewarding outstanding performance</p>
-                        </div>
-                    </div>
-                    <div class="bv-slide-item">
-                        <img src="images/teams/gr15_celebrating_worker_birthaday.jpg" alt="Team Building" class="bv-slide-image">
-                        <div class="bv-slide-content">
-                            <h2 class="bv-slide-title">Celebrating Team Birthdays</h2>
-                            <p class="bv-slide-description"> Every birthday is a reminder to appreciate our people and motivate them for another successful year ahead.</p>
-                        </div>
-                    </div>
-                    <div class="bv-slide-item">
-                        <img src="images/teams/gr11_yoga.jpg" alt="Yoga Section" class="bv-slide-image">
-                        <div class="bv-slide-content">
-                            <h2 class="bv-slide-title">Wellness Activities</h2>
-                            <p class="bv-slide-description">Promoting health and wellness through yoga and mindfulness sessions</p>
-                        </div>
-                    </div>
+                </div>
 
-
-
-
+                <div class="card" data-event="republic">
+                    <img src="images/teams/gr9_celebration_img.jpg" alt="Republic Day" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title" style="color: orange;">Republic Day 2025</h3>
+                        <div class="card-date"><b> January 26, 2025</b></div>
+                        <p class="card-desc">On Republic Day, the <b>bal<span style='color:#0074D9;'>virt</b></span> team came together to honor the spirit of
+                            unity and patriotism. The event began with the flag hoisting ceremony followed by inspiring
+                            speeches and cultural performances that reminded everyone of our shared values and pride as
+                            a nation.</p>
                     </div>
+                </div>
 
-                    <div class="bv-slider-nav">
-                        <button class="bv-nav-btn bv-prev-btn">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="bv-nav-btn bv-next-btn">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
-
-                    <div class="bv-slider-dots">
-                        <!-- Dots will be generated by JavaScript -->
+                <div class="card" data-event="diwali">
+                    <img src="images/teams/diwali_team.jpg" alt="Diwali Mela" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title" style="color: red;">Diwali Mela 2025</h3>
+                        <div class="card-date"><b> October 21, 2025</b></div>
+                        <p class="card-desc">Diwali at <b>bal<span style='color:#0074D9;'>virt</b></span> was a moment of happiness, togetherness, and joy. The
+                            workplace glowed with colorful lights and decorations, while team members exchanged sweets
+                            and warm wishes. The celebration reflected the true spirit of light, positivity, and family
+                            at <b>bal<span style='color:#0074D9;'>virt</b></span>.</p>
                     </div>
                 </div>
             </div>
-            
-            <hr>
-            
+
+            <!-- Modal Box -->
+            <div class="eventModal">
+                <div class="eventModal-content">
+                    <button class="eventModal-close">×</button>
+                    <button class="eventModal-prev">❮</button>
+                    <button class="eventModal-next">❯</button>
+                    <div class="eventModal-img"></div>
+                    <div class="eventModal-text">
+                        <h2 class="eventModal-title"></h2>
+                        <div class="eventModal-date"></div>
+                        <p class="eventModal-desc"></p>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                const eventData = {
+                    dashera: {
+                        title: "Dashera Celebration 2025",
+                        date: "October 02, 2025",
+                        desc: "Balvirt celebrated Dashera with vibrant decorations, cultural performances, and festive unity that brought everyone together.",
+
+                        images: [
+                            "images/teams/gr5_pc.jpg",
+                            "images/teams/gr2.jpg",
+                            "images/teams/gr3_with_men.jpg",
+                            "images/teams/gr4_team_discussion.jpg",
+                            "images/teams/dashera.jpeg",
+                            "images/teams/dashera1.jpeg"
+                        ]
+                    },
+                    republic: {
+                        title: "Republic Day 2025",
+                        date: "January 26, 2025",
+                        desc: "The balvirt team marked republic Day with flag hoisting, patriotic events, and a spirit of pride and togetherness.",
+                        images: [
+                            "images/teams/gr9_celebration_img.jpg",
+                            "images/teams/gr6_celebration_culture_days.jpg",
+                            "images/teams/gr8_games.jpg",
+                            "images/teams/gr7_friendly_with_workers.jpg",
+                            "images/teams/gr19.jpg"
+                        ]
+                    },
+                    diwali: {
+                        title: "Diwali Mela 2025",
+                        date: "November 21, 2025",
+                        desc: "A festival of lights and smiles — balvirt’s Diwali Mela glowed with joy, positivity, and team spirit.",
+                        images: [
+                            "images/teams/diwali_team.jpg",
+                            "images/teams/diwali2.jpg",
+                            "images/teams/diwali_hr.jpg",
+                            "images/teams/diwali_boy2.jpg",
+                            "images/teams/diwali1.jpg",
+                            "images/teams/diwali_fealisitation.jpg",
+                            "images/teams/diwali4.jpg",
+                            "images/teams/diwali3.jpg",
+                            "images/teams/diwali11.jpg",
+                            "images/teams/diwali3.jpg"
+                        ]
+                    }
+                };
+
+                // 🧠 Preload all images (so pehli img instantly dikhe)
+                Object.values(eventData).forEach(ev => {
+                    ev.images.forEach(src => {
+                        const img = new Image();
+                        img.src = src;
+                    });
+                });
+
+                // 🔧 Variables (use unique class names)
+                const modalBox = document.querySelector('.eventModal');
+                const modalImg = document.querySelector('.eventModal-img');
+                const modalTitle = document.querySelector('.eventModal-title');
+                const modalDate = document.querySelector('.eventModal-date');
+                const modalDesc = document.querySelector('.eventModal-desc');
+                const closeBtn = document.querySelector('.eventModal-close');
+                const nextBtn = document.querySelector('.eventModal-next');
+                const prevBtn = document.querySelector('.eventModal-prev');
+
+                let activeEvent = null;
+                let activeIndex = 0;
+
+                // 🖼️ Update modal image + details
+                function updateEventModal() {
+                    const data = eventData[activeEvent];
+                    const img = data.images[activeIndex];
+                    modalImg.style.backgroundImage = `url('${img}')`;
+                    modalTitle.textContent = data.title;
+                    modalDate.textContent = data.date;
+                    modalDesc.textContent = data.desc;
+                }
+
+                // 🧩 Open Modal
+                function openEventModal(eventKey) {
+                    activeEvent = eventKey;
+                    activeIndex = 0;
+                    updateEventModal();
+                    modalBox.classList.add('show');
+                }
+
+                // 🚪 Close Modal
+                function closeEventModal() {
+                    modalBox.classList.remove('show');
+                }
+
+                // ⏩ Next / ⏪ Prev
+                function nextEventImg() {
+                    const data = eventData[activeEvent];
+                    activeIndex = (activeIndex + 1) % data.images.length;
+                    updateEventModal();
+                }
+                function prevEventImg() {
+                    const data = eventData[activeEvent];
+                    activeIndex = (activeIndex - 1 + data.images.length) % data.images.length;
+                    updateEventModal();
+                }
+
+                // 🖱️ Click Events
+                document.querySelectorAll('.card').forEach(card => {
+                    card.addEventListener('click', () => openEventModal(card.dataset.event));
+                });
+                nextBtn.addEventListener('click', nextEventImg);
+                prevBtn.addEventListener('click', prevEventImg);
+                closeBtn.addEventListener('click', closeEventModal);
+                modalBox.addEventListener('click', e => { if (e.target === modalBox) closeEventModal(); });
+
+                // ⌨️ Keyboard support
+                document.addEventListener('keydown', e => {
+                    if (!modalBox.classList.contains('show')) return;
+                    if (e.key === 'Escape') closeEventModal();
+                    if (e.key === 'ArrowRight') nextEventImg();
+                    if (e.key === 'ArrowLeft') prevEventImg();
+                });
+            </script>
+
+            <hr id="hr">
+
             <!-- Mission Section -->
             <div class="about-row reverse-row" id="mission">
                 <div class="section-img">
@@ -307,17 +532,22 @@
                 </div>
                 <div class="about-content">
                     <h2 class="section-title">Our Mission</h2>
-                    <p>To empower businesses through innovative, efficient, and scalable digital solutions that drive growth, streamline operations, and unlock new possibilities.</p>
+                    <p>To empower businesses through innovative, efficient, and scalable digital solutions that drive
+                        growth, streamline operations, and unlock new possibilities.</p>
                     <ul class="animated-list">
-                        <li class="list-item">Simplify complex business processes through technology-driven automation.</li>
-                        <li class="list-item">Provide actionable insights via real-time analytics and seamless integrations.</li>
+                        <li class="list-item">Simplify complex business processes through technology-driven automation.
+                        </li>
+                        <li class="list-item">Provide actionable insights via real-time analytics and seamless
+                            integrations.</li>
                         <li class="list-item">Enable organizations to become cloud-ready, data-ready, and AI-ready.</li>
-                        <li class="list-item">Foster long-term client success with solutions tailored to unique business needs.</li>
-                        <li class="list-item">Build a culture of continuous learning, innovation, and excellence within our team.</li>
+                        <li class="list-item">Foster long-term client success with solutions tailored to unique business
+                            needs.</li>
+                        <li class="list-item">Build a culture of continuous learning, innovation, and excellence within
+                            our team.</li>
                     </ul>
                 </div>
             </div>
-
+<hr id="hr">
             <!-- Vision Section -->
             <div class="about-row" id="vision">
                 <div class="section-img">
@@ -325,16 +555,21 @@
                 </div>
                 <div class="about-content">
                     <h2 class="section-title">Our Vision</h2>
-                    <p>To be a trusted global leader in delivering transformative technology and ERP solutions that simplify complexity, enhance productivity, and build a smarter future.</p>
+                    <p>To be a trusted global leader in delivering transformative technology and ERP solutions that
+                        simplify complexity, enhance productivity, and build a smarter future.</p>
                     <ul class="animated-list">
                         <li class="list-item">Simplify complexity and empower smarter decision-making.</li>
                         <li class="list-item">Enhance productivity and operational efficiency across industries.</li>
-                        <li class="list-item">Deliver seamless, integrated experiences across cloud, mobile, and web platforms.</li>
-                        <li class="list-item">Set industry benchmarks for innovation, reliability, and client satisfaction.</li>
-                        <li class="list-item">Create a sustainable impact by driving growth, agility, and competitiveness for our clients.</li>
+                        <li class="list-item">Deliver seamless, integrated experiences across cloud, mobile, and web
+                            platforms.</li>
+                        <li class="list-item">Set industry benchmarks for innovation, reliability, and client
+                            satisfaction.</li>
+                        <li class="list-item">Create a sustainable impact by driving growth, agility, and
+                            competitiveness for our clients.</li>
                     </ul>
                 </div>
             </div>
+            <hr id="hr">
 
             <!-- Values Section - Image on right, content on left -->
             <div class="values-section" id="values">
@@ -342,8 +577,10 @@
                     <h2 class="section-title">Our Core Values</h2>
                     <ul class="value-content">
                         <li class="value-item"><strong>Integrity</strong> – We act with honesty and accountability</li>
-                        <li class="value-item"><strong>Customer Focus</strong> – We put clients at the center of everything</li>
-                        <li class="value-item"><strong>Innovation</strong> – We embrace change and deliver smart solutions</li>
+                        <li class="value-item"><strong>Customer Focus</strong> – We put clients at the center of
+                            everything</li>
+                        <li class="value-item"><strong>Innovation</strong> – We embrace change and deliver smart
+                            solutions</li>
                         <li class="value-item"><strong>Excellence</strong> – We strive for quality in every detail</li>
                         <li class="value-item"><strong>Teamwork</strong> – Collaboration and mutual respect</li>
                         <li class="value-item"><strong>Learning</strong> – Continuous improvement and curiosity</li>
@@ -354,10 +591,11 @@
                     <img src="images/about/Core_values[1].png" alt="Core Values">
                 </div>
             </div>
+            <hr id="hr">
         </section>
     </main>
-    
- 
+
+
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-main">
@@ -457,7 +695,7 @@
                         Subscribe to our newsletter for the latest updates and insights.
                     </p>
 
-                   <form method="POST" action="php/newsletter.php" class="newsletter-form">
+                    <form method="POST" action="php/newsletter.php" class="newsletter-form">
                         <div class="input-group">
                             <input type="email" name="email" placeholder="Enter your email"
                                 style="font-size: larger; color: white;" required>
@@ -466,30 +704,31 @@
                     </form>
 
 
-                    
-                <!-- Footer Bottom -->
-                <div class="footer-bottom">
-                    <div class="container">
-                        <div class="footer-bottom-content">
+
+                    <!-- Footer Bottom -->
+                    <div class="footer-bottom">
+                        <div class="container">
+                            <div class="footer-bottom-content">
+                            </div>
+                            <p id="footer" style="text-align: center;">&copy; 2025 Balvirt </p>
                         </div>
-                        <p id="footer" style="text-align: center;">&copy; 2025 Balvirt </p>
                     </div>
+
+                    <!-- Scroll to Top Button -->
+                    <button class="scroll-to-top">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
                 </div>
-
-                <!-- Scroll to Top Button -->
-                <button class="scroll-to-top">
-                    <i class="fas fa-chevron-up"></i>
-                </button>
             </div>
-        </div>
     </footer>
- 
 
-    
-    
+
+
+
     <!-- //<script src="js/about.js"></script> -->
     <script src="script.js"></script>
     <script src="js/about.js"></script>
     <script src="js/newsletter.js"></script>
 </body>
+
 </html>
