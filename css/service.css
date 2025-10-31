@@ -561,11 +561,11 @@
         }
        .animated-hr {
   border: 0;
-  height: 4px;
+  height: 2px;
   background: linear-gradient(270deg, rgb(255, 0, 0), rgba(255, 255, 255, 0.732),rgba(128, 0, 0, 0.892));
   background-size: 600% 100%;
   animation: animateHR 3s linear infinite;
-  border-radius: 5px;
+  border-radius: 2px;
   margin: 20px 0;
 }
 

@@ -159,14 +159,16 @@
             color: #444;
             line-height: 1.4;
         }
-        #hr{
-            border: none;
-  height: 4px;
+        
+        /* Updated HR styles - thicker and less frequent */
+        #hr {
+  border: none;
+  height: 2px; /* thinner line */
   border-radius: 10px;
   background: linear-gradient(90deg, #ff7b00, #ffb347, #ef7b2d);
   background-size: 300% 100%;
   animation: moveGradient 4s ease-in-out infinite;
-  box-shadow: 0 0 15px rgba(239,123,45,0.6);
+  box-shadow: 0 0 10px rgba(239, 123, 45, 0.5); /* reduced shadow to match thinner line */
   margin: 40px 0;
 }
 
@@ -175,6 +177,71 @@
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+        
+        .fast-accesses {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .fast-accesses a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Button Styles - Updated with consistent colors */
+        .contact-btn1 {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.4);
+        }
+
+        .services-btn1 {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            box-shadow: 0 4px 15px rgba(67, 206, 162, 0.4);
+        }
+
+        .carrers-btn1 {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.4);
+        }
+
+        /* Hover Effects */
+        .fast-accesses a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.25);
+            transform: skewX(-20deg);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .fast-accesses a:hover::before {
+            left: 200%;
+        }
+
+        .fast-accesses a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
 
         
     </style>
@@ -313,7 +380,7 @@
                     </div>
                 </div>
             </div>
-            <hr id="hr">
+            <div class="section-divider"></div>
 
             <!-- Interactive Cards -->
             <div class="interactive-cards">
@@ -343,9 +410,81 @@
                 </div>
             </div>
 
-            <hr id="hr">
+            <div class="section-divider"></div>
 
-            <!-- Events Section -->
+            <!-- Mission Section -->
+            <div class="about-row reverse-row" id="mission">
+                <div class="section-img">
+                    <img src="images/about/Mission.png" alt="Our Mission">
+                </div>
+                <div class="about-content">
+                    <h2 class="section-title">Our Mission</h2>
+                    <p>To empower businesses through innovative, efficient, and scalable digital solutions that drive
+                        growth, streamline operations, and unlock new possibilities.</p>
+                    <ul class="animated-list">
+                        <li class="list-item">Simplify complex business processes through technology-driven automation.
+                        </li>
+                        <li class="list-item">Provide actionable insights via real-time analytics and seamless
+                            integrations.</li>
+                        <li class="list-item">Enable organizations to become cloud-ready, data-ready, and AI-ready.</li>
+                        <li class="list-item">Foster long-term client success with solutions tailored to unique business
+                            needs.</li>
+                        <li class="list-item">Build a culture of continuous learning, innovation, and excellence within
+                            our team.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section-divider"></div>
+
+            <!-- Vision Section -->
+            <div class="about-row" id="vision">
+                <div class="section-img">
+                    <img src="images/about/vision.png" alt="Our Vision">
+                </div>
+                <div class="about-content">
+                    <h2 class="section-title">Our Vision</h2>
+                    <p>To be a trusted global leader in delivering transformative technology and ERP solutions that
+                        simplify complexity, enhance productivity, and build a smarter future.</p>
+                    <ul class="animated-list">
+                        <li class="list-item">Simplify complexity and empower smarter decision-making.</li>
+                        <li class="list-item">Enhance productivity and operational efficiency across industries.</li>
+                        <li class="list-item">Deliver seamless, integrated experiences across cloud, mobile, and web
+                            platforms.</li>
+                        <li class="list-item">Set industry benchmarks for innovation, reliability, and client
+                            satisfaction.</li>
+                        <li class="list-item">Create a sustainable impact by driving growth, agility, and
+                            competitiveness for our clients.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section-divider"></div>
+
+            <!-- Values Section - Image on right, content on left -->
+            <div class="values-section" id="values">
+                <div class="values-content">
+                    <h2 class="section-title">Our Core Values</h2>
+                    <ul class="value-content">
+                        <li class="value-item"><strong>Integrity</strong> – We act with honesty and accountability</li>
+                        <li class="value-item"><strong>Customer Focus</strong> – We put clients at the center of
+                            everything</li>
+                        <li class="value-item"><strong>Innovation</strong> – We embrace change and deliver smart
+                            solutions</li>
+                        <li class="value-item"><strong>Excellence</strong> – We strive for quality in every detail</li>
+                        <li class="value-item"><strong>Teamwork</strong> – Collaboration and mutual respect</li>
+                        <li class="value-item"><strong>Learning</strong> – Continuous improvement and curiosity</li>
+                        <li class="value-item"><strong>Responsibility</strong> – Positive impact through ownership</li>
+                    </ul>
+                </div>
+                <div class="section-img">
+                    <img src="images/about/Core_values[1].png" alt="Core Values">
+                </div>
+            </div>
+            
+            <div class="section-divider"></div>
+
+            <!-- Events Section - Moved below Core Values -->
             <h2 class="section-title" style="text-align: center; margin-top: 50px;">Balvirt Events & Celebrations</h2>
 
             <!-- Event Cards -->
@@ -353,9 +492,9 @@
                 <div class="card" data-event="dashera">
                     <img src="images/teams/gr5_pc.jpg" alt="Dashera Celebration" class="card-img">
                     <div class="card-content">
-                        <h3 class="card-title" style="color: green;">Dashera Celebration 2025</h3>
+                        <h3 class="card-title" style="color: rgb(128, 11, 0);">Dashera Celebration 2025</h3>
                         <div class="card-date"><b> October 02, 2025</b></div>
-                        <p class="card-desc"><b>Bal<span style='color:#0074D9;'>virt</b></span> family celebrated Dashera with great enthusiasm and togetherness.
+                        <p class="card-desc"><b style='color:#0074D9;'>Bal<span>virt</b></span> family celebrated Dashera with great enthusiasm and togetherness.
                             The entire office was beautifully decorated with lights and traditional designs. Team
                             members wore ethnic attire and showcased cultural performances that filled the environment
                             with festive joy.</p>
@@ -365,9 +504,9 @@
                 <div class="card" data-event="republic">
                     <img src="images/teams/gr9_celebration_img.jpg" alt="Republic Day" class="card-img">
                     <div class="card-content">
-                        <h3 class="card-title" style="color: orange;">Republic Day 2025</h3>
+                        <h3 class="card-title" style="color: rgb(255, 72, 0);">Republic Day 2025</h3>
                         <div class="card-date"><b> January 26, 2025</b></div>
-                        <p class="card-desc">On Republic Day, the <b>bal<span style='color:#0074D9;'>virt</b></span> team came together to honor the spirit of
+                        <p class="card-desc">On Republic Day, the <b style='color:#0074D9;'>bal<span>virt</b></span> team came together to honor the spirit of
                             unity and patriotism. The event began with the flag hoisting ceremony followed by inspiring
                             speeches and cultural performances that reminded everyone of our shared values and pride as
                             a nation.</p>
@@ -379,10 +518,10 @@
                     <div class="card-content">
                         <h3 class="card-title" style="color: red;">Diwali Mela 2025</h3>
                         <div class="card-date"><b> October 21, 2025</b></div>
-                        <p class="card-desc">Diwali at <b>bal<span style='color:#0074D9;'>virt</b></span> was a moment of happiness, togetherness, and joy. The
+                        <p class="card-desc">Diwali at <b style='color:#0074D9;'>bal<span>virt</b></span> was a moment of happiness, togetherness, and joy. The
                             workplace glowed with colorful lights and decorations, while team members exchanged sweets
                             and warm wishes. The celebration reflected the true spirit of light, positivity, and family
-                            at <b>bal<span style='color:#0074D9;'>virt</b></span>.</p>
+                            at <b style='color:#0074D9;'>bal<span>virt</b></span>.</p>
                     </div>
                 </div>
             </div>
@@ -433,7 +572,7 @@
                     diwali: {
                         title: "Diwali Mela 2025",
                         date: "November 21, 2025",
-                        desc: "A festival of lights and smiles — balvirt’s Diwali Mela glowed with joy, positivity, and team spirit.",
+                        desc: "A festival of lights and smiles — balvirt's Diwali Mela glowed with joy, positivity, and team spirit.",
                         images: [
                             "images/teams/diwali_team.jpg",
                             "images/teams/diwali2.jpg",
@@ -522,79 +661,14 @@
                     if (e.key === 'ArrowLeft') prevEventImg();
                 });
             </script>
-
-            <hr id="hr">
-
-            <!-- Mission Section -->
-            <div class="about-row reverse-row" id="mission">
-                <div class="section-img">
-                    <img src="images/about/Mission.png" alt="Our Mission">
-                </div>
-                <div class="about-content">
-                    <h2 class="section-title">Our Mission</h2>
-                    <p>To empower businesses through innovative, efficient, and scalable digital solutions that drive
-                        growth, streamline operations, and unlock new possibilities.</p>
-                    <ul class="animated-list">
-                        <li class="list-item">Simplify complex business processes through technology-driven automation.
-                        </li>
-                        <li class="list-item">Provide actionable insights via real-time analytics and seamless
-                            integrations.</li>
-                        <li class="list-item">Enable organizations to become cloud-ready, data-ready, and AI-ready.</li>
-                        <li class="list-item">Foster long-term client success with solutions tailored to unique business
-                            needs.</li>
-                        <li class="list-item">Build a culture of continuous learning, innovation, and excellence within
-                            our team.</li>
-                    </ul>
-                </div>
-            </div>
-<hr id="hr">
-            <!-- Vision Section -->
-            <div class="about-row" id="vision">
-                <div class="section-img">
-                    <img src="images/about/vision.png" alt="Our Vision">
-                </div>
-                <div class="about-content">
-                    <h2 class="section-title">Our Vision</h2>
-                    <p>To be a trusted global leader in delivering transformative technology and ERP solutions that
-                        simplify complexity, enhance productivity, and build a smarter future.</p>
-                    <ul class="animated-list">
-                        <li class="list-item">Simplify complexity and empower smarter decision-making.</li>
-                        <li class="list-item">Enhance productivity and operational efficiency across industries.</li>
-                        <li class="list-item">Deliver seamless, integrated experiences across cloud, mobile, and web
-                            platforms.</li>
-                        <li class="list-item">Set industry benchmarks for innovation, reliability, and client
-                            satisfaction.</li>
-                        <li class="list-item">Create a sustainable impact by driving growth, agility, and
-                            competitiveness for our clients.</li>
-                    </ul>
-                </div>
-            </div>
-            <hr id="hr">
-
-            <!-- Values Section - Image on right, content on left -->
-            <div class="values-section" id="values">
-                <div class="values-content">
-                    <h2 class="section-title">Our Core Values</h2>
-                    <ul class="value-content">
-                        <li class="value-item"><strong>Integrity</strong> – We act with honesty and accountability</li>
-                        <li class="value-item"><strong>Customer Focus</strong> – We put clients at the center of
-                            everything</li>
-                        <li class="value-item"><strong>Innovation</strong> – We embrace change and deliver smart
-                            solutions</li>
-                        <li class="value-item"><strong>Excellence</strong> – We strive for quality in every detail</li>
-                        <li class="value-item"><strong>Teamwork</strong> – Collaboration and mutual respect</li>
-                        <li class="value-item"><strong>Learning</strong> – Continuous improvement and curiosity</li>
-                        <li class="value-item"><strong>Responsibility</strong> – Positive impact through ownership</li>
-                    </ul>
-                </div>
-                <div class="section-img">
-                    <img src="images/about/Core_values[1].png" alt="Core Values">
-                </div>
-            </div>
-            <hr id="hr">
         </section>
     </main>
 
+    <div class="fast-accesses">
+        <a href="contact.html" class="contact-btn1">We're Here to Help</a>
+        <a href="services.html" class="services-btn1">View Our Services</a>
+        <a href="carrers.html" class="carrers-btn1">Get In Company</a>
+    </div>
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -721,9 +795,6 @@
                 </div>
             </div>
     </footer>
-
-
-
 
     <!-- //<script src="js/about.js"></script> -->
     <script src="script.js"></script>

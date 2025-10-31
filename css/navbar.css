@@ -1,3 +1,21 @@
+/* ===== RESET & BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #001f3f;
+    overflow-x: hidden;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
 /* ===== NAVBAR STYLES ===== */
 .navbar {
     background-color: rgba(255, 255, 255, 0.95);
@@ -52,10 +70,12 @@
     align-items: center;
     gap: 0;
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-item {
-    position: relative; /* Important for dropdown */
+    position: relative;
     height: 100%;
     display: flex;
     align-items: center;
@@ -73,6 +93,7 @@
     transition: all 0.3s;
     border-bottom: 3px solid transparent;
     gap: 5px;
+    cursor: pointer;
 }
 
 .nav-link i {
@@ -101,7 +122,7 @@
 /* Dropdown Styles */
 .dropdown-content {
     display: none;
-    position: absolute; /* parent relative se position hoti hai */
+    position: absolute;
     top: 100%;
     left: 0;
     background-color: white;
@@ -158,6 +179,8 @@
     transition: background-color 0.3s, transform 0.3s;
     font-size: 15px;
     margin-left: 20px;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .contact-btn:hover {
@@ -196,7 +219,7 @@
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* ===== MOBILE STYLES ===== */
+/* ===== MOBILE STYLES FIX ===== */
 @media screen and (max-width: 992px) {
     .hamburger {
         display: block;
@@ -213,10 +236,13 @@
         overflow-y: auto;
         gap: 0;
         transition: 0.3s;
+        z-index: 999;
+        padding: 0;
     }
 
     .nav-menu.active {
         left: 0;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .nav-item {
@@ -225,14 +251,28 @@
     }
 
     .nav-link {
-        padding: 20px;
+        padding: 18px 20px;
         width: 100%;
-        justify-content: center;
+        justify-content: space-between;
         border-bottom: 1px solid #f0f0f0;
+        font-size: 16px;
+        border-bottom: 3px solid transparent !important;
+    }
+
+    .dropdown .nav-link {
+        position: relative;
+    }
+
+    .dropdown .nav-link i {
+        transition: transform 0.3s ease;
+    }
+
+    .dropdown.active .nav-link i {
+        transform: rotate(180deg);
     }
 
     .dropdown-content {
-        position: relative; /* Fixed under parent */
+        position: relative;
         top: 0;
         left: 0;
         width: 100%;
@@ -241,12 +281,19 @@
         border-top: none;
         border-radius: 0;
         display: none;
+        padding-left: 0;
+    }
+
+    .dropdown.active .dropdown-content {
+        display: block !important;
+        animation: slideDown 0.3s ease;
     }
 
     .dropdown-content a {
-        padding-left: 30px;
+        padding: 15px 30px;
         border-left: 3px solid transparent;
         border-bottom: 1px solid #e0e0e0;
+        font-size: 15px;
     }
 
     .dropdown-content a:hover {
@@ -254,13 +301,33 @@
         background-color: #e9ecef;
     }
 
+    .dropdown-content a.active {
+        border-left: 3px solid #0074D9;
+        background-color: #e9ecef;
+        color: #0074D9;
+    }
+
     .contact-btn {
         margin: 20px auto;
         width: 200px;
+        display: block;
+        text-align: center;
     }
 
-    .dropdown:not(.active) .dropdown-content {
-        display: none !important;
+    .nav-link.active {
+        background-color: #f8f9fa;
+        color: #0074D9;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -271,5 +338,62 @@
 
     .logo-img {
         height: 35px;
+    }
+    
+    .nav-link {
+        padding: 16px 20px;
+    }
+    
+    .dropdown-content a {
+        padding: 14px 30px;
+    }
+    
+    .nav-container {
+        padding: 0 10px;
+    }
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #0074D9;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    border: none;
+    font-size: 20px;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    background: #0056a3;
+    transform: translateY(-3px);
+}
+
+/* Bounce Animation for Badge */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-3px);
     }
 }
