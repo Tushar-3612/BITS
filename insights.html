@@ -10,6 +10,95 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/insight.css">
     <link rel="shortcut icon" href="images/logo1.png" type="image/jpg">
+    <style>
+        /* CSS for video thumbnail functionality only */
+        .balvirt-video-card {
+            position: relative;
+            width: 350px;
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background: white;
+        }
+        
+        .balvirt-video-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .balvirt-video-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .balvirt-video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .balvirt-video-card:hover .balvirt-video-thumbnail img {
+            transform: scale(1.05);
+        }
+        
+        .balvirt-video-play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .balvirt-video-card:hover .balvirt-video-play-overlay {
+            opacity: 1;
+        }
+        
+        .balvirt-play-icon {
+            color: white;
+            font-size: 48px;
+            background: rgba(255,0,0,0.8);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .balvirt-video-info {
+            padding: 15px;
+            background: white;
+        }
+        
+        .balvirt-video-info h3 {
+            margin: 0 0 8px 0;
+            font-size: 18px;
+            color: #333;
+        }
+        
+        .balvirt-video-info p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .balvirt-video-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,7 +107,6 @@
         <div class="nav-container">
             <div class="logo-section">
                 <img src="images/logo1.png" alt="Balvirt Logo" class="logo-img">
-                <!-- <a href="home.html" class="logo-text">Bal<span class="virt">virt</span>.com</a> -->
             </div>
 
             <ul class="nav-menu">
@@ -67,7 +155,6 @@
                     </div>
                 </li>
 
-
                 <li class="nav-item dropdown">
                     <a href="why-us.html" class="nav-link">
                         Why-us<i class="fas fa-chevron-down"></i>
@@ -109,7 +196,6 @@
                         <a href="insights.html#youtube"><i class="fab fa-youtube"></i> YouTube Videos</a>
                         <a href="insights.html#achievements"><i class="fas fa-trophy"></i> Achievements</a>
                         <a href="insights.html#webinars"><i class="fas fa-chalkboard-teacher"></i> Webinars</a>
-                         
                     </div>
                 </li>
 
@@ -126,51 +212,41 @@
         </div>
     </nav>
 
-
-
     <div class="balvirt-container">
-        <!-- YouTube Videos Section -->
+        <!-- YouTube Videos Section - FIXED -->
         <section class="balvirt-section-padding">
             <div class="balvirt-section-title">
                 <h1 id="navy" style="margin-top: 100px;">Balvirt Section</h1>
                 <h2><i class="fab fa-youtube" id="youtube"></i> YouTube Videos</h2>
             </div>
 
-            <div class="balvirt-video-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
-
-                <!-- Video 1 (Original link) -->
-                <div class="balvirt-video-card" style="position: relative; cursor: pointer; width: 350px;"
-                    onclick="window.open('https://www.youtube.com/@BalasahebITSolution', '_blank')">
-                    <div class="balvirt-video-thumbnail" style="position: relative;">
-                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" width="100%" height="200"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                        <!-- Transparent overlay to capture click -->
-                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+            <div class="balvirt-video-container">
+                <!-- Video 1 - Fixed with thumbnail and proper link -->
+                <div class="balvirt-video-card" data-video-url="https://www.youtube.com/watch?v=vwA2EQVGwAo">
+                    <div class="balvirt-video-thumbnail">
+                        <img src="https://img.youtube.com/vi/vwA2EQVGwAo/maxresdefault.jpg" alt="What Makes Us, What We Are Today!">
+                        <div class="balvirt-video-play-overlay">
+                            <i class="fas fa-play balvirt-play-icon"></i>
+                        </div>
                     </div>
-                    <div class="balvirt-video-info" style="padding: 10px;">
+                    <div class="balvirt-video-info">
                         <h3>What Makes Us, What We Are Today!</h3>
                         <p>Step-by-step NetSuite ERP implementation process</p>
                     </div>
                 </div>
 
-              
-
-            </div>
-
+               
+ 
             <!-- YouTube Channel Button -->
-            <div style="text-align: center; margin-top: 30px;">
+            
+        </section>
+    </div>
+     <div style="text-align: center; margin-top: 30px;">
                 <a href="https://www.youtube.com/@BalasahebITSolution" class="balvirt-youtube-btn" target="_blank"
                     style="padding: 10px 20px; background: red; color: white; text-decoration: none; border-radius: 5px;">
                     <i class="fab fa-youtube"></i> Visit Our YouTube Channel
                 </a>
             </div>
-        </section>
-    </div>
-
-
-
 
     <!-- Achievements Section -->
     <section class="balvirt-section-padding balvirt-bg-light">
@@ -209,19 +285,14 @@
         </div>
     </section>
 
-     
-
-    </div>
+    <!-- Webinars Section -->
     <h1 style="text-align: center; color: #0074D9"><b> Webinars</b></h1>
     <section class="balvirt-Webinars">
-
         <div class="bw-webinar-container">
             <!-- Fixed Left Section -->
             <div class="bw-fixed-section" id="webinars">
                 <div class="bw-main-content">
-                    <!-- <img src="felisitation.jpg" alt=""> -->
                     <h2>Wellness Activities at <b> <span style='color:#0074D9;'>balvirt</b></span> .</h2>
-
                 </div>
             </div>
 
@@ -263,10 +334,7 @@
         </div>
     </section>
 
-
-
-    <!-- Footer
- Footer Section -->
+    <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-main">
             <div class="container">
@@ -275,7 +343,6 @@
                     <div class="footer-section">
                         <div class="footer-logo">
                             <img src="images/logo1.jpg" alt="Balvirt Logo">
-                            <!-- <span class="logo-text">Bal<span class="virt">virt</span>.com</span> -->
                         </div>
                         <p class="footer-desc">Your trusted partner for NetSuite ERP solutions and digital
                             transformation services. We help businesses achieve operational excellence through
@@ -339,8 +406,6 @@
                                         <span>Tal-Sangamner,Dist-Ahilyanagar,Pin-422605</span>
                                     </a>
                                 </div>
-
-
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-phone"></i>
@@ -348,8 +413,6 @@
                                     <span><a href="tel:+919665521708"
                                             style="text-decoration: underline; color: inherit;">+91
                                             9665521708</a></span>
-
-
                                 </div>
                             </div>
                             <div class="contact-item">
@@ -357,16 +420,12 @@
                                 <div>
                                     <span><a href="mailto:contact@balvirt.com"
                                             style="text-decoration: underline; color: inherit;">contact@balvirt.com</a></span>
-
-
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
 
-                 
                 <!-- Newsletter -->
                 <div class="footer-section">
                     <h3 class="footer-title" style="font-size: larger; color: orange;" id="gold">Newsletter</h3>
@@ -379,96 +438,40 @@
                             <button type="submit"><i class="fas fa-paper-plane"></i></button>
                         </div>
                     </form>
+                </div>
 
-
-
-                    <div class="footer-bottom">
-                        <div class="container">
-                            <div class="footer-bottom-content">
-
-
-
-                            </div>
-                            <p id="footer" style="text-align: center;">&copy; 2025 Balvirt </p>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="footer-bottom-content">
                         </div>
+                        <p id="footer" style="text-align: center;">&copy; 2025 Balvirt </p>
                     </div>
+                </div>
 
-                    <button class="scroll-to-top">
-                        <i class="fas fa-chevron-up"></i>
-                    </button>
-
+                <button class="scroll-to-top">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+            </div>
+        </div>
     </footer>
+
     <script src="script.js"></script>
     <script src="js/newsletter.js"></script>
 
     <script>
-        // Tab functionality for Insights Page
+        // Video card click functionality
         document.addEventListener('DOMContentLoaded', function () {
-            const tabBtns = document.querySelectorAll('.balvirt-tab-btn');
-            const tabContents = document.querySelectorAll('.balvirt-tab-content');
-
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remove active class from all buttons and contents
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    tabContents.forEach(c => c.classList.remove('active'));
-
-                    // Add active class to clicked button
-                    btn.classList.add('active');
-
-                    // Show corresponding content
-                    const tabId = btn.getAttribute('data-tab');
-                    document.getElementById(tabId).classList.add('active');
-                });
-            });
-
-            // Video card click functionality
             const videoCards = document.querySelectorAll('.balvirt-video-card');
+            
             videoCards.forEach(card => {
                 card.addEventListener('click', function () {
-                    const iframe = this.querySelector('iframe');
-                    if (iframe) {
-                        window.open(iframe.src.replace('embed/', 'watch?v='), '_blank');
-                    }
-                });
-            });
-        });
-    </script>
-
-    <script>
-        // Tab functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabBtns = document.querySelectorAll('.balvirt-tab-btn');
-            const tabContents = document.querySelectorAll('.balvirt-tab-content');
-
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remove active class from all buttons and contents
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    tabContents.forEach(c => c.classList.remove('active'));
-
-                    // Add active class to clicked button
-                    btn.classList.add('active');
-
-                    // Show corresponding content
-                    const tabId = btn.getAttribute('data-tab');
-                    document.getElementById(tabId).classList.add('active');
-                });
-            });
-
-            // Video card click functionality
-            const videoCards = document.querySelectorAll('.balvirt-video-card');
-            videoCards.forEach(card => {
-                card.addEventListener('click', function () {
-                    const iframe = this.querySelector('iframe');
-                    if (iframe) {
-                        window.open(iframe.src.replace('embed/', 'watch?v='), '_blank');
+                    const videoUrl = this.getAttribute('data-video-url');
+                    if (videoUrl) {
+                        window.open(videoUrl, '_blank');
                     }
                 });
             });
         });
     </script>
 </body>
-
-
 </html>
