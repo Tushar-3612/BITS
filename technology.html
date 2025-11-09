@@ -8,9 +8,75 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+     <link rel="stylesheet" href="css/chatbot.css">
+    
     <link rel="shortcut icon" href="images/logo1.png" type="image/jpg">
 </head>
+<style>
+      .fast-accesses {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            margin: 50px auto;
+            padding: 20px;
+        }
 
+        .fast-accesses a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Button Styles - Updated with consistent colors */
+        .contact-btn1 {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.4);
+        }
+
+        .services-btn1 {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            box-shadow: 0 4px 15px rgba(67, 206, 162, 0.4);
+        }
+
+        .carrers-btn1 {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.4);
+        }
+
+        /* Hover Effects */
+        .fast-accesses a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.25);
+            transform: skewX(-20deg);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .fast-accesses a:hover::before {
+            left: 200%;
+        }
+
+        .fast-accesses a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+</style>
 <body>
     <!-- Navigation Bar -->
      <nav class="navbar">
@@ -132,7 +198,7 @@
             <p>At <strong> <span id="navy"> balvirt </span></strong>, we leverage top technology platforms to drive
                 digital transformation.</p>
         </div>
-
+                
         <!-- NetSuite Platform -->
         <div class="platform-item" id="netsuite">
             <div class="platform-content">
@@ -233,10 +299,19 @@
                 </ul>
             </div>
             <div class="platform-image"
-                style="background-image: url('images/web.jpg');">
+                style="background-image: url('images/web.png');">
             </div>
         </div>
+        <div class="fast-accesses">
+    <a href="services.html" class="contact-btn1">Explore Our Services</a>
+    <a href="industries.html" class="services-btn1">Industries We Empower</a>
+    <a href="contact.html" class="carrers-btn1">Talk to Our Tech Experts</a>
+</div>
+
     </section>
+     <!-- 💬 Enhanced Chatbot -->
+   
+        
        <!-- Footer
  Footer Section -->
     <footer class="footer">
@@ -368,6 +443,56 @@
                     <button class="scroll-to-top">
                         <i class="fas fa-chevron-up"></i>
                     </button>
+                        
+    < <div class="balvirt-chatbot-icon">
+    <i class="fas fa-robot"></i>
+    <span class="balvirt-chatbot-dot"></span>
+</div>
+
+<div class="balvirt-chatbot-box balvirt-chatbot-hidden">
+    <div class="balvirt-chatbot-header">
+        <h3>Balvirt Assistant</h3>
+        <button class="balvirt-chatbot-close">×</button>
+    </div>
+
+    <!-- Chatbot Navigation Tabs -->
+    <div class="balvirt-chatbot-nav">
+        <button class="balvirt-chatbot-tab balvirt-chatbot-active" data-section="home">Home</button>
+        <button class="balvirt-chatbot-tab" data-section="services">Services</button>
+        <button class="balvirt-chatbot-tab" data-section="industries">Industries</button>
+        <button class="balvirt-chatbot-tab" data-section="technology">Tech</button>
+        <button class="balvirt-chatbot-tab" data-section="careers">Careers</button>
+        <button class="balvirt-chatbot-tab" data-section="about">About</button>
+        <button class="balvirt-chatbot-tab" data-section="contact">Contact</button>
+    </div>
+
+    <!-- Chat Messages Area -->
+    <div class="balvirt-chatbot-messages">
+        <div class="balvirt-chatbot-message balvirt-chatbot-bot-message">
+            <div class="balvirt-chatbot-content">
+                <p>Hello! 👋 I'm Balvirt Assistant. Select a category above to explore our services and solutions.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Typing Indicator -->
+    <div class="balvirt-chatbot-typing balvirt-chatbot-hidden">
+        <div class="balvirt-chatbot-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="balvirt-chatbot-input-container">
+        <input type="text" class="balvirt-chatbot-input" placeholder="Type your message here...">
+        <button class="balvirt-chatbot-send">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
+    <script src="js/chatbot.js"></script>
                      
     </footer>
     <script src="script.js"></script>

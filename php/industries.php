@@ -27,8 +27,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     fclose(stream: $fp);
 
     // ===== SMTP settings =====
-    $smtpUser = 'tusharnagare7875@gmail.com'; // 👈 Gmail
-    $smtpPass = 'hnxpzznccbwaioun';          // 👈 16-char App Password (no spaces)
+    $smtpUser = 'wd228225@gmail.com';
+    $smtpPass = 'pfwtpdumhbnmyxsl';
+    // 👈 16-char App Password (no spaces)
 
     // ===== Send email to Admin =====
     $adminMail = new PHPMailer(true);

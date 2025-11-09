@@ -12,8 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = trim($_POST['phone']);
     $message = trim($_POST['message']);
 
-    $smtpUser = 'tusharnagare7875@gmail.com';
-    $smtpPass = 'hnxpzznccbwaioun';
+    $smtpUser = 'wd228225@gmail.com';
+    $smtpPass = 'pfwtpdumhbnmyxsl';
 
     // Admin mail
     $adminMail = new PHPMailer(true);

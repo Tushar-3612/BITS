@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/chatbot.css">
 
     <style>
         /* Event Modal Styles */
@@ -161,23 +162,7 @@
         }
         
         /* Updated HR styles - thicker and less frequent */
-        #hr {
-  border: none;
-  height: 2px; /* thinner line */
-  border-radius: 10px;
-  background: linear-gradient(90deg, #ff7b00, #ffb347, #ef7b2d);
-  background-size: 300% 100%;
-  animation: moveGradient 4s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(239, 123, 45, 0.5); /* reduced shadow to match thinner line */
-  margin: 40px 0;
-}
-
-@keyframes moveGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
+         
         
         .fast-accesses {
             display: flex;
@@ -370,7 +355,7 @@
                         <span class="stat-number">0</span>
                         <div class="stat-label">Years Experience</div>
                     </div>
-                    <div class="stats-circle" data-target="50">
+                    <div class="stats-circle" data-target="205">
                         <span class="stat-number">0</span>
                         <div class="stat-label">Projects Completed</div>
                     </div>
@@ -492,9 +477,9 @@
                 <div class="card" data-event="dashera">
                     <img src="images/teams/gr5_pc.jpg" alt="Dashera Celebration" class="card-img">
                     <div class="card-content">
-                        <h3 class="card-title" style="color: rgb(128, 11, 0);">Dashera Celebration 2025</h3>
+                        <h3 class="card-title" style="color :black;">Dussehra Celebration 2025</h3>
                         <div class="card-date"><b> October 02, 2025</b></div>
-                        <p class="card-desc"><b style='color:#0074D9;'>Bal<span>virt</b></span> family celebrated Dashera with great enthusiasm and togetherness.
+                        <p class="card-desc"><b style='color:#0074D9;'>Bal<span>virt</b></span> family celebrated dussehra with great enthusiasm and togetherness.
                             The entire office was beautifully decorated with lights and traditional designs. Team
                             members wore ethnic attire and showcased cultural performances that filled the environment
                             with festive joy.</p>
@@ -504,9 +489,9 @@
                 <div class="card" data-event="republic">
                     <img src="images/teams/gr9_celebration_img.jpg" alt="Republic Day" class="card-img">
                     <div class="card-content">
-                        <h3 class="card-title" style="color: rgb(255, 72, 0);">Republic Day 2025</h3>
+                        <h3 class="card-title" style="color:black;">Independence Day 2025</h3>
                         <div class="card-date"><b> January 26, 2025</b></div>
-                        <p class="card-desc">On Republic Day, the <b style='color:#0074D9;'>bal<span>virt</b></span> team came together to honor the spirit of
+                        <p class="card-desc">On Independence Day, the <b style='color:#0074D9;'>bal<span>virt</b></span> team came together to honor the spirit of
                             unity and patriotism. The event began with the flag hoisting ceremony followed by inspiring
                             speeches and cultural performances that reminded everyone of our shared values and pride as
                             a nation.</p>
@@ -516,7 +501,7 @@
                 <div class="card" data-event="diwali">
                     <img src="images/teams/diwali_team.jpg" alt="Diwali Mela" class="card-img">
                     <div class="card-content">
-                        <h3 class="card-title" style="color: red;">Diwali Mela 2025</h3>
+                        <h3 class="card-title" style="color: black">Diwali Fest 2025</h3>
                         <div class="card-date"><b> October 21, 2025</b></div>
                         <p class="card-desc">Diwali at <b style='color:#0074D9;'>bal<span>virt</b></span> was a moment of happiness, togetherness, and joy. The
                             workplace glowed with colorful lights and decorations, while team members exchanged sweets
@@ -544,9 +529,9 @@
             <script>
                 const eventData = {
                     dashera: {
-                        title: "Dashera Celebration 2025",
+                        title: "Dussehra Celebration 2025",
                         date: "October 02, 2025",
-                        desc: "Balvirt celebrated Dashera with vibrant decorations, cultural performances, and festive unity that brought everyone together.",
+                        desc: "Balvirt celebrated dussehra with vibrant decorations, cultural performances, and festive unity that brought everyone together.",
 
                         images: [
                             "images/teams/gr5_pc.jpg",
@@ -558,9 +543,9 @@
                         ]
                     },
                     republic: {
-                        title: "Republic Day 2025",
+                        title: "Independence Day 2025",
                         date: "January 26, 2025",
-                        desc: "The balvirt team marked republic Day with flag hoisting, patriotic events, and a spirit of pride and togetherness.",
+                        desc: "The balvirt team marked independence Day with flag hoisting, patriotic events, and a spirit of pride and togetherness.",
                         images: [
                             "images/teams/gr9_celebration_img.jpg",
                             "images/teams/gr6_celebration_culture_days.jpg",
@@ -570,9 +555,9 @@
                         ]
                     },
                     diwali: {
-                        title: "Diwali Mela 2025",
+                        title: "Diwali Fest 2025",
                         date: "November 21, 2025",
-                        desc: "A festival of lights and smiles — balvirt's Diwali Mela glowed with joy, positivity, and team spirit.",
+                        desc: "A festival of lights and smiles — balvirt's diwali fest glowed with joy, positivity, and team spirit.",
                         images: [
                             "images/teams/diwali_team.jpg",
                             "images/teams/diwali2.jpg",
@@ -663,13 +648,7 @@
             </script>
         </section>
     </main>
-
-    <div class="fast-accesses">
-        <a href="contact.html" class="contact-btn1">We're Here to Help</a>
-        <a href="services.html" class="services-btn1">View Our Services</a>
-        <a href="carrers.html" class="carrers-btn1">Get In Company</a>
-    </div>
-
+  
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-main">
@@ -794,6 +773,57 @@
                     </button>
                 </div>
             </div>
+                
+    <!-- 💬 Enhanced Chatbot -->
+     <div class="balvirt-chatbot-icon">
+    <i class="fas fa-robot"></i>
+    <span class="balvirt-chatbot-dot"></span>
+</div>
+
+<div class="balvirt-chatbot-box balvirt-chatbot-hidden">
+    <div class="balvirt-chatbot-header">
+        <h3>Balvirt Assistant</h3>
+        <button class="balvirt-chatbot-close">×</button>
+    </div>
+
+    <!-- Chatbot Navigation Tabs -->
+    <div class="balvirt-chatbot-nav">
+        <button class="balvirt-chatbot-tab balvirt-chatbot-active" data-section="home">Home</button>
+        <button class="balvirt-chatbot-tab" data-section="services">Services</button>
+        <button class="balvirt-chatbot-tab" data-section="industries">Industries</button>
+        <button class="balvirt-chatbot-tab" data-section="technology">Tech</button>
+        <button class="balvirt-chatbot-tab" data-section="careers">Careers</button>
+        <button class="balvirt-chatbot-tab" data-section="about">About</button>
+        <button class="balvirt-chatbot-tab" data-section="contact">Contact</button>
+    </div>
+
+    <!-- Chat Messages Area -->
+    <div class="balvirt-chatbot-messages">
+        <div class="balvirt-chatbot-message balvirt-chatbot-bot-message">
+            <div class="balvirt-chatbot-content">
+                <p>Hello! 👋 I'm Balvirt Assistant. Select a category above to explore our services and solutions.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Typing Indicator -->
+    <div class="balvirt-chatbot-typing balvirt-chatbot-hidden">
+        <div class="balvirt-chatbot-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="balvirt-chatbot-input-container">
+        <input type="text" class="balvirt-chatbot-input" placeholder="Type your message here...">
+        <button class="balvirt-chatbot-send">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
+    <script src="js/chatbot.js"></script>
     </footer>
 
     <!-- //<script src="js/about.js"></script> -->

@@ -54,8 +54,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // ===== Send Emails in Background =====
-    $smtpUser = 'tusharnagare7875@gmail.com';
-    $smtpPass = 'hnxpzznccbwaioun';
+   $smtpUser = 'wd228225@gmail.com';
+    $smtpPass = 'pfwtpdumhbnmyxsl';
+
 
     // ----- Admin Email -----
     try {

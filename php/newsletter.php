@@ -29,8 +29,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
     }
 
     // ===== Send confirmation email in background =====
-    $smtpUser = 'tusharnagare7875@gmail.com';
-    $smtpPass = 'hnxpzznccbwaioun';
+   $smtpUser = 'wd228225@gmail.com';
+    $smtpPass = 'pfwtpdumhbnmyxsl';
 
     try {
         $mail = new PHPMailer(true);

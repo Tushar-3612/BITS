@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+   <link rel="stylesheet" href="css/chatbot.css">
     <link rel="shortcut icon" href="images/logo1.png" type="image/jpg">
     <style>
         /* Industries Page Specific Styles - Unique Classes */
@@ -656,10 +657,11 @@
     <!-- Industries We Serve Section -->
     <section class="industries-main-section">
         <div class="industries-container">
+            <div id="manufacturing"> 
             <p class="industries-intro">We deliver industry-specific NetSuite solutions that address unique challenges and drive measurable results across diverse business verticals.</p>
 
             <!-- Manufacturing -->
-            <div class="industries-item" id="manufacturing">
+            <div class="industries-item">
                 <div class="industries-content">
                     <h3 class="industries-heading">1 Manufacturing</h3>
                     <p class="industries-description">Complete ERP solutions for manufacturing businesses to streamline operations and enhance productivity.</p>
@@ -671,11 +673,14 @@
                 </div>
                 <div class="industries-image-wrapper">
                     <img src="images/manufacturing.jpg" alt="Manufacturing" class="industries-image">
+                     <div id="retail"> 
                 </div>
+            </div>
             </div>
 
             <!-- Retail & eCommerce -->
-            <div class="industries-item reverse-layout" id="retail">
+               
+            <div class="industries-item reverse-layout">
                 <div class="industries-content">
                     <h3 class="industries-heading">2 Retail & eCommerce</h3>
                     <p class="industries-description">Unified commerce solutions that bridge online and offline retail operations seamlessly.</p>
@@ -687,11 +692,15 @@
                 </div>
                 <div class="industries-image-wrapper">
                     <img src="images/Retail[1].png" alt="Retail eCommerce" class="industries-image">
+                    <div id="wholesale"> 
                 </div>
+                 
+            </div>
+             
             </div>
 
             <!-- Wholesale Distribution -->
-            <div class="industries-item" id="wholesale">
+            <div class="industries-item">
                 <div class="industries-content">
                     <h3 class="industries-heading">3 Wholesale Distribution</h3>
                     <p class="industries-description">Optimize your distribution network with intelligent supply chain management solutions.</p>
@@ -703,11 +712,13 @@
                 </div>
                 <div class="industries-image-wrapper">
                     <img src="images/Wholesale_Distributor[1].png" alt="Wholesale Distribution" class="industries-image">
+                    <div  id="automotive"> 
                 </div>
+            </div>
             </div>
 
             <!-- Automotive DMS -->
-            <div class="industries-item reverse-layout" id="automotive">
+            <div class="industries-item reverse-layout">
                 <div class="industries-content">
                     <h3 class="industries-heading">4 Automotive DMS</h3>
                     <p class="industries-description">Integrated dealership management system unifying all aspects of automotive retail operations.</p>
@@ -718,12 +729,16 @@
                     </ul>
                 </div>
                 <div class="industries-image-wrapper">
+                     
                     <img src="images/Automative.png" alt="Automotive DMS" class="industries-image">
+                     <div  id="ecommerce"> 
                 </div>
+            </div>
+             
             </div>
 
             <!-- E-commerce -->
-            <div class="industries-item" id="ecommerce">
+            <div class="industries-item">
                 <div class="industries-content">
                     <h3 class="industries-heading">5 E-commerce</h3>
                     <p class="industries-description">Advanced e-commerce solutions for managing complex online business operations.</p>
@@ -739,7 +754,7 @@
             </div>
         </div>
     </section>
-
+</div>
     <hr class="animated-hr">
 
     <!-- Contact Section -->
@@ -1004,6 +1019,58 @@
                 </div>
             </div>
         </div>
+            
+  <div class="balvirt-chatbot-icon">
+    <i class="fas fa-robot"></i>
+    <span class="balvirt-chatbot-dot"></span>
+</div>
+
+<div class="balvirt-chatbot-box balvirt-chatbot-hidden">
+    <div class="balvirt-chatbot-header">
+        <h3>Balvirt Assistant</h3>
+        <button class="balvirt-chatbot-close">×</button>
+    </div>
+
+    <!-- Chatbot Navigation Tabs -->
+    <div class="balvirt-chatbot-nav">
+        <button class="balvirt-chatbot-tab balvirt-chatbot-active" data-section="home">Home</button>
+        <button class="balvirt-chatbot-tab" data-section="services">Services</button>
+        <button class="balvirt-chatbot-tab" data-section="industries">Industries</button>
+        <button class="balvirt-chatbot-tab" data-section="technology">Tech</button>
+        <button class="balvirt-chatbot-tab" data-section="careers">Careers</button>
+        <button class="balvirt-chatbot-tab" data-section="about">About</button>
+        <button class="balvirt-chatbot-tab" data-section="contact">Contact</button>
+    </div>
+
+    <!-- Chat Messages Area -->
+    <div class="balvirt-chatbot-messages">
+        <div class="balvirt-chatbot-message balvirt-chatbot-bot-message">
+            <div class="balvirt-chatbot-content">
+                <p>Hello! 👋 I'm Balvirt Assistant. Select a category above to explore our services and solutions.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Typing Indicator -->
+    <div class="balvirt-chatbot-typing balvirt-chatbot-hidden">
+        <div class="balvirt-chatbot-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="balvirt-chatbot-input-container">
+        <input type="text" class="balvirt-chatbot-input" placeholder="Type your message here...">
+        <button class="balvirt-chatbot-send">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
+
+    <script src="js/chatbot.js"></script>
+        
     </footer>
     
     <script src="script.js"></script>

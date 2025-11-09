@@ -1,0 +1,525 @@
+/* chatbot-styles.css - COMPLETELY ISOLATED */
+.balvirt-chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 26px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    font-size: 24px;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(106, 17, 203, 0.6);
+    z-index: 10000;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: none;
+    outline: none;
+    transform-origin: center;
+}
+
+.balvirt-chatbot-icon:hover {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 0 30px rgba(106, 17, 203, 0.9);
+}
+
+.balvirt-chatbot-icon .balvirt-chatbot-dot {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+    background: #00ff6a;
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: balvirt-chatbot-pulse 2s infinite;
+}
+
+@keyframes balvirt-chatbot-pulse {
+    0% { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.7; 
+        transform: scale(1.2);
+        box-shadow: 0 0 10px #00ff6a;
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+}
+
+.balvirt-chatbot-box {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 90vw;
+    max-width: 420px;
+    height: 70vh;
+    max-height: 520px;
+    min-height: 400px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(106, 17, 203, 0.3);
+    overflow: hidden;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-family: Arial, sans-serif;
+    border: 1px solid rgba(106, 17, 203, 0.1);
+}
+
+.balvirt-chatbot-box.balvirt-chatbot-show {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.balvirt-chatbot-hidden {
+    display: none !important;
+}
+
+/* Chatbot Header */
+
+.balvirt-chatbot-header {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.balvirt-chatbot-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    animation: balvirt-shine 3s infinite;
+}
+
+@keyframes balvirt-shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.balvirt-chatbot-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+.balvirt-chatbot-close {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.balvirt-chatbot-close:hover {
+    transform: scale(1.2) rotate(90deg);
+    background: rgba(255,255,255,0.2);
+}
+
+/* Chatbot Navigation */
+.balvirt-chatbot-nav {
+    display: flex;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    overflow-x: auto;
+    padding: 4px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.balvirt-chatbot-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.balvirt-chatbot-nav .balvirt-chatbot-tab {
+    flex: 1;
+    padding: 12px 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-bottom: 3px solid transparent;
+    margin: 0 2px;
+    min-width: 0;
+    color: #495057;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.balvirt-chatbot-nav .balvirt-chatbot-tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(106, 17, 203, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.balvirt-chatbot-nav .balvirt-chatbot-tab:hover::before {
+    left: 100%;
+}
+
+.balvirt-chatbot-nav .balvirt-chatbot-tab.balvirt-chatbot-active {
+    background: white;
+    border-bottom: 3px solid #6a11cb;
+    color: #6a11cb;
+    font-weight: 600;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(106, 17, 203, 0.15);
+}
+
+.balvirt-chatbot-nav .balvirt-chatbot-tab:hover {
+    background: #e9ecef;
+    transform: translateY(-1px);
+}
+
+/* Chat Messages */
+.balvirt-chatbot-messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: none;
+    background: linear-gradient(135deg, #fafbff, #f0f2f8);
+}
+
+.balvirt-chatbot-messages .balvirt-chatbot-message {
+    display: flex;
+    margin-bottom: 6px;
+    animation: balvirt-chatbot-fadeIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.balvirt-chatbot-messages .balvirt-chatbot-user-message {
+    justify-content: flex-end;
+}
+
+.balvirt-chatbot-messages .balvirt-chatbot-bot-message {
+    justify-content: flex-start;
+}
+
+.balvirt-chatbot-messages .balvirt-chatbot-content {
+    max-width: 85%;
+    padding: 14px 18px;
+    border-radius: 18px;
+    position: relative;
+    line-height: 1.4;
+    font-size: 14px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.balvirt-chatbot-messages .balvirt-chatbot-user-message .balvirt-chatbot-content {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+}
+
+.balvirt-chatbot-messages .balvirt-chatbot-bot-message .balvirt-chatbot-content {
+    background: white;
+    color: #333;
+    border-bottom-left-radius: 6px;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.balvirt-chatbot-messages .balvirt-chatbot-content:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Question Buttons */
+.balvirt-chatbot-messages .balvirt-chatbot-question-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 12px 0;
+}
+
+.balvirt-chatbot-messages .balvirt-chatbot-question-btn {
+    background: white;
+    border: 1px solid #6a11cb;
+    color: #6a11cb;
+    border-radius: 12px;
+    padding: 12px 16px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-size: 13px;
+    line-height: 1.3;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0 2px 8px rgba(106, 17, 203, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.balvirt-chatbot-messages .balvirt-chatbot-question-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(106, 17, 203, 0.1), transparent);
+    transition: left 0.6s;
+}
+
+.balvirt-chatbot-messages .balvirt-chatbot-question-btn:hover::before {
+    left: 100%;
+}
+
+.balvirt-chatbot-messages .balvirt-chatbot-question-btn:hover {
+    background: #6a11cb;
+    color: white;
+    transform: translateX(8px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(106, 17, 203, 0.4);
+}
+
+@keyframes balvirt-chatbot-fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px) scale(0.95); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+/* Typing Indicator */
+.balvirt-chatbot-typing {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.balvirt-chatbot-typing .balvirt-chatbot-dots {
+    display: flex;
+    margin-right: 16px;
+}
+
+.balvirt-chatbot-typing .balvirt-chatbot-dots span {
+    height: 10px;
+    width: 10px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border-radius: 50%;
+    display: block;
+    margin: 0 3px;
+    animation: balvirt-chatbot-bounce 1.5s infinite ease-in-out;
+    box-shadow: 0 2px 4px rgba(106, 17, 203, 0.3);
+}
+
+.balvirt-chatbot-typing .balvirt-chatbot-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.balvirt-chatbot-typing .balvirt-chatbot-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes balvirt-chatbot-bounce {
+    0%, 60%, 100% { 
+        transform: translateY(0); 
+    }
+    30% { 
+        transform: translateY(-5px); 
+    }
+}
+
+/* Chat Input */
+.balvirt-chatbot-input-container {
+    display: flex;
+    padding: 16px 20px;
+    background: white;
+    border-top: 1px solid #e9ecef;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: linear-gradient(135deg, #fff, #fafafa);
+}
+
+.balvirt-chatbot-input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 18px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.balvirt-chatbot-input:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 4px 15px rgba(106, 17, 203, 0.2);
+    transform: translateY(-1px);
+}
+
+.balvirt-chatbot-send {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(106, 17, 203, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.balvirt-chatbot-send::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.balvirt-chatbot-send:hover::before {
+    transform: translateX(100%);
+}
+
+.balvirt-chatbot-send:hover {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 6px 25px rgba(106, 17, 203, 0.6);
+}
+
+/* Scrollbar Styling */
+.balvirt-chatbot-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.balvirt-chatbot-messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.balvirt-chatbot-messages::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(106, 17, 203, 0.3);
+}
+
+.balvirt-chatbot-messages::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a0db5, #1c68e8);
+}
+
+/* =============================== */
+/* SCROLL DETECTION - 100PX SCROLL */
+/* =============================== */
+
+/* Modern browsers CSS solution */
+@supports (animation-timeline: scroll()) {
+    .balvirt-chatbot-icon {
+        animation: auto chatbot-scroll-move linear both;
+        animation-timeline: scroll();
+        animation-range: 50px 200px;
+    }
+}
+
+@keyframes chatbot-scroll-move {
+    to {
+        bottom: 120px;
+        transform: scale(1.1);
+    }
+}
+
+/* Fallback for older browsers */
+.balvirt-chatbot-scroll-wrapper {
+    position: fixed;
+    bottom: 0;
+    right: 26px;
+    height: 180px;
+    width: 55px;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.balvirt-chatbot-scroll-wrapper .balvirt-chatbot-icon {
+    position: sticky;
+    bottom: 20px;
+    top: 100vh;
+    pointer-events: auto;
+    margin-top: 100px;
+}
+
+/* Floating animation when not scrolling */
+@keyframes balvirt-float {
+    0%, 100% { 
+        transform: translateY(0px) scale(1); 
+    }
+    50% { 
+        transform: translateY(-5px) scale(1.02); 
+    }
+}
+
+.balvirt-chatbot-icon {
+    animation: balvirt-float 3s ease-in-out infinite;
+}
+
+/* When chatbot is active, stop floating */
+.balvirt-chatbot-icon.balvirt-chatbot-active {
+    animation: none;
+    transform: scale(1.1);
+    box-shadow: 0 0 35px rgba(106, 17, 203, 1);
+}

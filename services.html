@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/service.css">
+     <link rel="stylesheet" href="css/chatbot.css">
     <link rel="shortcut icon" href="images/logo1.png" type="image/jpg">
      
 </head>
@@ -186,13 +187,16 @@
                 </div>
             </div>
         </div>
+           
     </section>
 
     <!-- Services Content -->
+     <div id="implementation" > 
+      
     <section class="services-content">
         <div class="container">
             <!-- Service 1 -->
-            <div class="service-box" id="implementation">
+            <div class="service-box"  >
                 <div class="service-info">
                     <h2>NetSuite Implementation</h2>
                     <p>Complete end-to-end implementation of NetSuite ERP tailored to your business needs. We ensure smooth transition from legacy systems with minimal disruption.</p>
@@ -206,8 +210,10 @@
                     <img src="images/Netsuite_Implementation[1].png" alt="Implementation">
                 </div>
             </div>
+            <div id="optimization" > 
+            </div>
              <!-- Service 3 -->
-            <div class="service-box reverse" id="optimization">
+            <div class="service-box reverse">
                 <div class="service-info">
                     <h2>NetSuite Optimization</h2>
                     <p>Maximize your NetSuite investment with performance optimization and system enhancements.</p>
@@ -222,9 +228,11 @@
                     <img src="images/Services/NetSuite_Optimization.png" alt="Optimization">
                 </div>
             </div>
+            <div id="customization" >
+            </div>
 
             <!-- Service 2 -->
-            <div class="service-box" id="customization">
+            <div class="service-box">
                 <div class="service-info">
                     <h2>NetSuite Customization</h2>
                     <p>Extend NetSuite's capabilities with custom solutions that address your unique business processes and requirements.</p>
@@ -238,11 +246,12 @@
                     <img src="images/Services/NetSuite_customization .png" alt="Customization">
                 </div>
             </div>
-
+            <div id="integration"> 
+            </div>
             
 
             <!-- Service 4 -->
-            <div class="service-box reverse" id="integration">
+            <div class="service-box reverse">
                 <div class="service-info">
                     <h2>NetSuite Integration</h2>
                     <p>Seamlessly connect NetSuite with your existing systems and third-party applications.</p>
@@ -256,9 +265,10 @@
                     <img src="images/Services/N_integration[1].png" alt="Integration">
                 </div>
             </div>
-
+            <div id="support">
+                </div>
             <!-- Service 5 -->
-            <div class="service-box" id="support">
+            <div class="service-box"  >
                 <div class="service-info">
                     <h2>NetSuite Support</h2>
                     <p>Comprehensive support services to keep your NetSuite system running optimally.</p>
@@ -272,9 +282,11 @@
                     <img src="images/Services/support[1].png" alt="Support">
                 </div>
             </div>
+            <div id="data-migration">
+            </div>
 
             <!-- Service 6 -->
-            <div class="service-box reverse" id="data-migration">
+            <div class="service-box reverse"  >
                 <div class="service-info">
                     <h2>NetSuite Data Migration</h2>
                     <p>Secure and efficient migration of your data to NetSuite platform.</p>
@@ -288,9 +300,10 @@
                     <img src="images/Services/Data_migration[1].png" alt="Data Migration">
                 </div>
             </div>
-
+            <div id="app-development" >
+            </div>
             <!-- Service 7 -->
-            <div class="service-box" id="app-development">
+            <div class="service-box" >
                 <div class="service-info">
                     <h2>Application Development & Modernization</h2>
                     <p>Custom application development and legacy system modernization services.</p>
@@ -306,6 +319,7 @@
                     <img src="images/Application_development[1].png" alt="App Development">
                 </div>
             </div>
+        </div>
         </div>
     </section>
    <hr class="animated-hr">
@@ -419,6 +433,56 @@
             </div>
         </div>
     </section>
+     <div class="balvirt-chatbot-icon">
+    <i class="fas fa-robot"></i>
+    <span class="balvirt-chatbot-dot"></span>
+</div>
+
+<div class="balvirt-chatbot-box balvirt-chatbot-hidden">
+    <div class="balvirt-chatbot-header">
+        <h3>Balvirt Assistant</h3>
+        <button class="balvirt-chatbot-close">×</button>
+    </div>
+
+    <!-- Chatbot Navigation Tabs -->
+    <div class="balvirt-chatbot-nav">
+        <button class="balvirt-chatbot-tab balvirt-chatbot-active" data-section="home">Home</button>
+        <button class="balvirt-chatbot-tab" data-section="services">Services</button>
+        <button class="balvirt-chatbot-tab" data-section="industries">Industries</button>
+        <button class="balvirt-chatbot-tab" data-section="technology">Tech</button>
+        <button class="balvirt-chatbot-tab" data-section="careers">Careers</button>
+        <button class="balvirt-chatbot-tab" data-section="about">About</button>
+        <button class="balvirt-chatbot-tab" data-section="contact">Contact</button>
+    </div>
+
+    <!-- Chat Messages Area -->
+    <div class="balvirt-chatbot-messages">
+        <div class="balvirt-chatbot-message balvirt-chatbot-bot-message">
+            <div class="balvirt-chatbot-content">
+                <p>Hello! 👋 I'm Balvirt Assistant. Select a category above to explore our services and solutions.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Typing Indicator -->
+    <div class="balvirt-chatbot-typing balvirt-chatbot-hidden">
+        <div class="balvirt-chatbot-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="balvirt-chatbot-input-container">
+        <input type="text" class="balvirt-chatbot-input" placeholder="Type your message here...">
+        <button class="balvirt-chatbot-send">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
+
+    <script src="js/chatbot.js"></script>
 
     <!-- Footer Section -->
     <footer class="footer">
