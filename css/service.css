@@ -401,7 +401,7 @@
         }
         
         .service-img img {
-            max-width: 100%;
+            max-width: 90%;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.5s ease;
