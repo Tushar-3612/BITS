@@ -375,4 +375,7 @@
     
 
         /*emoji hoves */
-        
+        div [id] {
+    scroll-margin-top: 120px;
+}
+ 

@@ -931,6 +931,10 @@ body {
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
     animation: shimmer 3s infinite;
 }
+.tech-platforms [id] {
+    scroll-margin-top: 120px;
+}
+
 
 @keyframes shimmer {
     0% { left: -100%; }
@@ -996,3 +1000,5 @@ body {
         font-size: 0.95rem;
     }
 }
+
+ 
