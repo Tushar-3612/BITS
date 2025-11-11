@@ -32,7 +32,7 @@ const chatbotSections = {
         questions: [
             {
                 question: "What are the main services offered by Balvirt?",
-                answer: "Balvirt provides comprehensive IT solutions including:<br>• Full-stack web development<br>• Mobile app development<br>• Cloud computing & hosting<br>• UI/UX design<br>• AI & machine learning integration<br>• Cybersecurity & IT consulting<br>• Digital marketing and branding services"
+                answer: "Balvirt provides comprehensive IT solutions including:<br>• Full-stack web development<br>• Mobile app development<br>• Cloud computing & hosting<br>• UI/UX design<br>• AI & machine learning integration<br>• Cybersecurity & IT consulting<br>• Digital marketing and branding services<br>Looking for what we can do for you? Head over to the Services Page to find out."
             },
             {
                 question: "What web development services do you provide?",
@@ -73,7 +73,7 @@ const chatbotSections = {
         questions: [
             {
                 question: "Which industries does Balvirt serve?",
-                answer: "Balvirt provides solutions for:<br>• Education and E-Learning<br>• Healthcare and Pharmaceuticals<br>• Retail and E-commerce<br>• Finance and Banking<br>• Manufacturing and Industrial Automation<br>• Travel and Tourism<br>• Real Estate and Property Management<br>• Information Technology and Software"
+                answer: "Balvirt provides solutions for:<br>• Education and E-Learning<br>• Healthcare and Pharmaceuticals<br>• Retail and E-commerce<br>• Finance and Banking<br>• Manufacturing and Industrial Automation<br>• Travel and Tourism<br>• Real Estate and Property Management<br>• Information Technology and Software<br>To explore how we work across various sectors, check out the Industries Page."
             },
             {
                 question: "Do you work with startups and small businesses?",
@@ -106,7 +106,7 @@ const chatbotSections = {
         questions: [
             {
                 question: "What technologies does Balvirt use for development?",
-                answer: "Balvirt's tech stack includes HTML5, CSS3, JavaScript, React, Node.js, Python, Django, Flutter, and cloud solutions like AWS and Azure."
+                answer: "Balvirt's tech stack includes HTML5, CSS3, JavaScript, React, Node.js, Python, Django, Flutter, and cloud solutions like AWS and Azure.<br>Looking for more details? Visit the Technology Page for everything you need!"
             },
             {
                 question: "Which database systems do you use?",
@@ -168,7 +168,7 @@ const chatbotSections = {
         questions: [
             {
                 question: "Who created Balvirt?",
-                answer: "Balvirt was founded by a passionate team focused on digital innovation and technology solutions."
+                answer: "Balvirt was founded by a passionate team focused on digital innovation and technology solutions<br>If you're interested, feel free to explore the About Page for more details."
             },
             {
                 question: "Where is Balvirt located?",

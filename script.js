@@ -436,10 +436,10 @@ class NavigationManager {
 class Utilities {
     static preloadImages() {
         const imageUrls = [
-            'images/home/home 2.jpg',
+            'images/home/home 1[3].png',
             'images/home/second.png',
             'images/home/netsuite.png',
-            'images/home/netsuite.png'
+            'images/home/home 2.jpg'
         ];
 
         imageUrls.forEach(url => {
