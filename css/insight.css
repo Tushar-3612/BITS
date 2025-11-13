@@ -45,7 +45,7 @@
             color: #ff0000;
         }
         
-        #achievements {
+        #achievement{
             color: #FFD700;
         }
         
@@ -565,3 +565,13 @@
             flex-wrap: wrap;
             justify-content: center;
         }
+  
+ div [id]{
+    scroll-margin-top: 150px;
+  }
+  h1[id]{
+    scroll-margin-top: 150px;
+  } 
+  section[id]{
+    scroll-margin-top:150px ;
+  }

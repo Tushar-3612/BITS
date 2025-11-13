@@ -711,4 +711,9 @@
                 height: 40px;
             }
         }
-  
+  div [id]{
+    scroll-margin-top: 150px;
+  }
+  div[id]{
+    scroll-margin-top: 100px;
+  }
