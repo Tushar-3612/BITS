@@ -171,65 +171,69 @@
         }
 
         /* Stats Section - Fixed Design */
-        .stats-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
+  .stats-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
 
-        .stats-circle {
-            text-align: center;
-            margin: 20px;
-            position: relative;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.8s ease;
-            width: 150px;
-            height: 150px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+.stats-circle {
+    text-align: center;
+    margin: 20px;
+    position: relative;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s ease;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-        .stats-circle.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
+.stats-circle.visible {
+    opacity: 1;
+    transform: scale(1);
+}
 
-        .stats-circle::before {
-            content: '';
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 8px dotted #0d6efd;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            transition: all 1.5s ease;
-        }
+/* ⭐ SAME CLASS: just fixing alignment + orange + rotation */
+.stats-circle::before {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 6px dotted #0d6efd;     /* your orange dotted border */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation: rotateOne 1s linear forwards; /* rotates once */
+}
 
-        .stats-circle.animated::before {
-            border: 8px solid #0d6efd;
-        }
+/* ⭐ Rotate once animation */
+@keyframes rotateOne {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
 
-        .stat-number {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a237e;
-            margin-bottom: 5px;
-        }
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 5px;
+}
 
-        .stat-label {
-            font-weight: 500;
-            color: #555;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 0 10px;
-        }
+.stat-label {
+    font-weight: 500;
+    color: #3755ca;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0 10px;
+}
 
         /* Slider Styles */
         .bv-slider-wrapper {

@@ -1,4 +1,4 @@
-// chatbot.js - COMPLETE WORKING CODE WITH SCROLL DETECTION & DRAGGABLE WINDOW
+// chatbot.js - COMPLETE FIXED CODE WITH AUTO-OPEN REMOVED AND SCROLL FIXED
 
 // Chatbot Questions and Answers Database
 const chatbotSections = {
@@ -32,7 +32,7 @@ const chatbotSections = {
         questions: [
             {
                 question: "What are the main services offered by Balvirt?",
-                answer: "Balvirt provides comprehensive IT solutions including:<br>• Full-stack web development<br>• Mobile app development<br>• Cloud computing & hosting<br>• UI/UX design<br>• AI & machine learning integration<br>• Cybersecurity & IT consulting<br>• Digital marketing and branding services"
+                answer: "Balvirt provides comprehensive IT solutions including:<br>• Full-stack web development<br>• Mobile app development<br>• Cloud computing & hosting<br>• UI/UX design<br>• AI & machine learning integration<br>• Cybersecurity & IT consulting<br>• Digital marketing and branding services<br>Looking for what we can do for you? Head over to the Services Page to find out."
             },
             {
                 question: "What web development services do you provide?",
@@ -73,7 +73,7 @@ const chatbotSections = {
         questions: [
             {
                 question: "Which industries does Balvirt serve?",
-                answer: "Balvirt provides solutions for:<br>• Education and E-Learning<br>• Healthcare and Pharmaceuticals<br>• Retail and E-commerce<br>• Finance and Banking<br>• Manufacturing and Industrial Automation<br>• Travel and Tourism<br>• Real Estate and Property Management<br>• Information Technology and Software"
+                answer: "Balvirt provides solutions for:<br>• Education and E-Learning<br>• Healthcare and Pharmaceuticals<br>• Retail and E-commerce<br>• Finance and Banking<br>• Manufacturing and Industrial Automation<br>• Travel and Tourism<br>• Real Estate and Property Management<br>• Information Technology and Software<br>To explore how we work across various sectors, check out the Industries Page."
             },
             {
                 question: "Do you work with startups and small businesses?",
@@ -106,7 +106,7 @@ const chatbotSections = {
         questions: [
             {
                 question: "What technologies does Balvirt use for development?",
-                answer: "Balvirt's tech stack includes HTML5, CSS3, JavaScript, React, Node.js, Python, Django, Flutter, and cloud solutions like AWS and Azure."
+                answer: "Balvirt's tech stack includes HTML5, CSS3, JavaScript, React, Node.js, Python, Django, Flutter, and cloud solutions like AWS and Azure.<br>Looking for more details? Visit the Technology Page for everything you need!"
             },
             {
                 question: "Which database systems do you use?",
@@ -168,7 +168,7 @@ const chatbotSections = {
         questions: [
             {
                 question: "Who created Balvirt?",
-                answer: "Balvirt was founded by a passionate team focused on digital innovation and technology solutions."
+                answer: "Balvirt was founded by a passionate team focused on digital innovation and technology solutions<br>If you're interested, feel free to explore the About Page for more details."
             },
             {
                 question: "Where is Balvirt located?",
@@ -219,7 +219,7 @@ const chatbotSections = {
     }
 };
 
-// Enhanced General Questions with better question understanding
+// FIXED General Questions with CORRECT MAPPING
 const generalQA = {
     // Greetings
     "hi": "Hello 👋 Welcome to Balvirt! How can I assist you today?",
@@ -228,7 +228,7 @@ const generalQA = {
     "good morning": "Wishing you a productive and inspiring start to your day!<br>Let's create something amazing together — how can I assist you today?",
     "good afternoon": "Hope your day's going well!<br>I'm here to help you explore Balvirt's digital solutions or answer any questions you have.",
     "good evening": "Good evening 🌇<br>As the day winds down, innovation never stops at Balvirt.<br>How may I assist you in achieving your next digital goal tonight?",
-    "good night":"Wishing you a peaceful night ahead from Balvirt ✨<br>Innovation never stops, but even creators need rest. See you refreshed and ready to build the future! 🌌",
+    "good night": "Wishing you a peaceful night ahead from Balvirt ✨<br>Innovation never stops, but even creators need rest. See you refreshed and ready to build the future! 🌌",
 
     // About the bot
     "who are you": "I'm Balvirt's virtual assistant 🤖 here to make your experience easier and faster!",
@@ -239,50 +239,56 @@ const generalQA = {
     "are you human": "Not exactly 😅, I'm an AI chatbot designed to assist you just like a human would!",
     "what is your name": "I'm BalvirtBot 🤖, your smart assistant from Balvirt Technologies!",
 
-    // About Company
+    // About Company - DIRECT MAPPING
     "what is balvirt": chatbotSections.home.questions[0].answer,
-    "tell me about balvirt": "Balvirt Technologies is a forward-thinking company 🌐 focusing on technology, innovation, and smart digital solutions.",
+    "tell me about balvirt": chatbotSections.home.questions[0].answer,
     "where is balvirt located": chatbotSections.about.questions[1].answer,
     "what services do you offer": chatbotSections.services.questions[0].answer,
-    "what does balvirt do": "We build powerful digital products 💻 and provide innovative solutions across multiple industries 🏢.",
+    "what does balvirt do": chatbotSections.home.questions[0].answer,
     "who is the founder of balvirt": chatbotSections.about.questions[0].answer,
 
-    // Services
+    // Services - DIRECT MAPPING
     "services": chatbotSections.services.questions[0].answer,
-    "tell me about your services": "We specialize in Web, AI, Cloud, and IT services to help businesses grow digitally 📈.",
+    "tell me about your services": chatbotSections.services.questions[0].answer,
     "web development": chatbotSections.services.questions[1].answer,
     "cloud services": "We provide scalable Cloud Services ☁️ to ensure your data and operations run smoothly.",
     "ai solutions": chatbotSections.technology.questions[2].answer,
     "software development": "We create secure and efficient software tailored to your goals 💻.",
     "consulting": chatbotSections.services.questions[5].answer,
 
-    // Industries
+    // Industries - DIRECT MAPPING
     "industries": chatbotSections.industries.questions[0].answer,
     "what industries do you serve": chatbotSections.industries.questions[0].answer,
-    "which industry do you specialize in": "We specialize in digital solutions for all industries — adaptable to your needs 💡.",
+    "which industry do you specialize in": chatbotSections.industries.questions[0].answer,
 
-    // Technology
+    // Technology - DIRECT MAPPING
     "technology": chatbotSections.technology.questions[0].answer,
     "what technologies do you use": chatbotSections.technology.questions[0].answer,
     "which tools do you use": chatbotSections.technology.questions[3].answer,
 
-    // Careers
+    // Careers - DIRECT MAPPING
     "careers": chatbotSections.careers.questions[0].answer,
-    "job openings": "We're always looking for talented people 🙌. Check our Careers page for open positions!",
+    "job openings": chatbotSections.careers.questions[4].answer,
     "how can i apply for a job": chatbotSections.careers.questions[0].answer,
     "internship": chatbotSections.careers.questions[1].answer,
-    "is balvirt hiring": "Yes, we're expanding our team 🚀. Head to our Careers page for current openings.",
+    "is balvirt hiring": chatbotSections.careers.questions[4].answer,
 
-    // Contact
+    // Contact - DIRECT MAPPING
     "contact": chatbotSections.contact.questions[0].answer,
     "how can i contact you": chatbotSections.contact.questions[0].answer,
-    "email": "You can reach Balvirt at contact@balvirt.com 📧 for queries and support.",
-    "phone": "Please check our Contact page 📞 for the latest contact details.",
+    "email": "You can reach<br>contact@balvirt.com<br>for queries and support.",
+    "phone": "📞+91 9665521708",
     "help": "I'm here to help! 🤖 You can also visit our Contact page if you need personal assistance 💬.",
 
     // Social / Info
     "website": "You can explore everything about us on our official site 🌐 www.balvirt.com",
-    "social media": "Follow us on LinkedIn, Instagram, and Twitter 📱 to stay updated!",
+    "social media": "Follow us on LinkedIn & Instagram 📱 to stay updated!",
+
+    // FIXED: International clients question
+    "do you work with international clients": chatbotSections.contact.questions[5].answer,
+    "international clients": chatbotSections.contact.questions[5].answer,
+    "foreign clients": chatbotSections.contact.questions[5].answer,
+    "global clients": chatbotSections.contact.questions[5].answer,
 
     // Pricing and Timeline
     "pricing": "Our pricing depends entirely on your project requirements and complexity. We offer flexible models such as Fixed Price, Hourly Rate, or Dedicated Team. Contact us to get a personalized quote that fits your needs! 💰",
@@ -296,12 +302,12 @@ const generalQA = {
     "how long": "Project duration is decided after analyzing the full requirements and expected features. We make sure your project is completed efficiently without compromising quality. 🚀",
     "delivery time": "Delivery time depends on the project type and features. After discussing your needs, we'll provide a detailed timeline and regular progress updates. ⏰",
     "duration": "Development duration varies as per project complexity and requirements. We'll finalize the timeline after understanding your goals and expectations.",
-    
+
     // Location and Establishment
-    "location":"We're based in India with clients across the globe. Our main office is located at <br>Hirai Estate, Aadarshnagar, Ghulewadi, Tal-Sangamner, Dist-Ahilyanagar, Maharashtra - 422605.<br>You can reach us at:<br>📞+91 9665521708<br>📧contact@balvirt.com",
-    "when balvirt started":"Balvirt Technologies was officially established in 2022.",
-    "when balvirt established":"Balvirt Technologies was officially established in 2022.",
-    "when was balvirt founded":"Balvirt Technologies was officially founded in 2022.",
+    "location": "We're based in India with clients across the globe. Our main office is located at <br>Hirai Estate, Aadarshnagar, Ghulewadi, Tal-Sangamner, Dist-Ahilyanagar, Maharashtra - 422605.<br>You can reach us at:<br>📞+91 9665521708<br>📧contact@balvirt.com",
+    "when balvirt started": "Balvirt Technologies was officially established in 2022.",
+    "when balvirt established": "Balvirt Technologies was officially established in 2022.",
+    "when was balvirt founded": "Balvirt Technologies was officially founded in 2022.",
 
     // Polite Talk
     "thank you": "You're welcome 😊 Always happy to assist you!",
@@ -311,7 +317,7 @@ const generalQA = {
     "nice to meet you": "Nice to meet you too 😊 I'm glad to assist!"
 };
 
-// ENHANCED QUESTION UNDERSTANDING SYSTEM
+// ENHANCED QUESTION UNDERSTANDING SYSTEM WITH FIXED MAPPING
 class QuestionUnderstanding {
     constructor() {
         this.keywordMapping = {
@@ -326,7 +332,7 @@ class QuestionUnderstanding {
             'ecommerce': 'e-commerce website solutions',
             'shop': 'e-commerce website solutions',
             'store': 'e-commerce website solutions',
-            
+
             // Technology keywords
             'react': 'what technologies do you use',
             'node': 'what technologies do you use',
@@ -339,7 +345,7 @@ class QuestionUnderstanding {
             'cloud': 'cloud services',
             'hosting': 'cloud services',
             'devops': 'cloud and devops solutions',
-            
+
             // Career keywords
             'job': 'careers',
             'work': 'careers',
@@ -350,7 +356,7 @@ class QuestionUnderstanding {
             'fresher': 'do you hire freshers',
             'vacancy': 'job openings',
             'position': 'job openings',
-            
+
             // Contact keywords
             'call': 'contact',
             'email': 'email',
@@ -359,7 +365,14 @@ class QuestionUnderstanding {
             'get in touch': 'how can i contact you',
             'address': 'location',
             'visit': 'location',
-            
+
+            // FIXED: International clients mapping
+            'international': 'do you work with international clients',
+            'foreign': 'do you work with international clients',
+            'global': 'do you work with international clients',
+            'worldwide': 'do you work with international clients',
+            'overseas': 'do you work with international clients',
+
             // Pricing keywords
             'cost': 'pricing',
             'price': 'pricing',
@@ -367,7 +380,7 @@ class QuestionUnderstanding {
             'quote': 'can i request a quote',
             'expensive': 'pricing',
             'affordable': 'pricing',
-            
+
             // Timeline keywords
             'time': 'project timeline',
             'duration': 'project timeline',
@@ -375,7 +388,7 @@ class QuestionUnderstanding {
             'deadline': 'project timeline',
             'schedule': 'project timeline',
             'how long': 'project timeline',
-            
+
             // Company info
             'founder': 'who is the founder of balvirt',
             'established': 'when balvirt started',
@@ -384,7 +397,7 @@ class QuestionUnderstanding {
             'office': 'location',
             'based': 'location'
         };
-        
+
         this.questionPatterns = {
             'how to': 'process',
             'what is': 'definition',
@@ -402,16 +415,16 @@ class QuestionUnderstanding {
             .replace(/[^\w\s]/g, ' ')
             .split(/\s+/)
             .filter(word => word.length > 2);
-        
+
         return [...new Set(words)];
     }
 
     understandQuestion(question) {
         const lowerQuestion = question.toLowerCase().trim();
         const keywords = this.extractKeywords(question);
-        
+
         console.log('Understanding question:', { question, keywords });
-        
+
         // Check for direct matches first
         if (generalQA[lowerQuestion]) {
             return {
@@ -421,11 +434,23 @@ class QuestionUnderstanding {
                 confidence: 1.0
             };
         }
-        
+
+        // NEW: Check for exact question in sections first
+        const sectionExactMatch = this.findExactInSections(lowerQuestion);
+        if (sectionExactMatch) {
+            return {
+                understood: true,
+                type: 'section_exact_match',
+                suggestedQuestion: sectionExactMatch.question,
+                confidence: 0.95,
+                section: sectionExactMatch.section
+            };
+        }
+
         // Check for keyword mappings
         let bestMatch = null;
         let highestScore = 0;
-        
+
         for (const [keyword, mappedQuestion] of Object.entries(this.keywordMapping)) {
             if (lowerQuestion.includes(keyword)) {
                 const score = this.calculateMatchScore(lowerQuestion, keyword);
@@ -435,7 +460,7 @@ class QuestionUnderstanding {
                 }
             }
         }
-        
+
         if (bestMatch && highestScore > 0.3) {
             return {
                 understood: true,
@@ -445,7 +470,7 @@ class QuestionUnderstanding {
                 keywords: keywords
             };
         }
-        
+
         // Check section questions
         const sectionMatch = this.findInSections(lowerQuestion);
         if (sectionMatch) {
@@ -457,7 +482,7 @@ class QuestionUnderstanding {
                 section: sectionMatch.section
             };
         }
-        
+
         return {
             understood: false,
             type: 'not_understood',
@@ -465,11 +490,27 @@ class QuestionUnderstanding {
             keywords: keywords
         };
     }
-    
+
+    // NEW METHOD: Find exact question in sections
+    findExactInSections(question) {
+        for (const [sectionKey, section] of Object.entries(chatbotSections)) {
+            for (const qa of section.questions) {
+                if (question === qa.question.toLowerCase()) {
+                    return {
+                        question: qa.question,
+                        section: sectionKey,
+                        confidence: 1.0
+                    };
+                }
+            }
+        }
+        return null;
+    }
+
     calculateMatchScore(question, keyword) {
         const questionWords = question.split(' ');
         const keywordWords = keyword.split(' ');
-        
+
         let score = 0;
         keywordWords.forEach(kw => {
             if (questionWords.some(qw => qw === kw)) {
@@ -478,14 +519,14 @@ class QuestionUnderstanding {
                 score += 0.5;
             }
         });
-        
+
         return score / keywordWords.length;
     }
-    
+
     findInSections(question) {
         let bestMatch = null;
         let highestSimilarity = 0;
-        
+
         for (const [sectionKey, section] of Object.entries(chatbotSections)) {
             for (const qa of section.questions) {
                 const similarity = this.calculateSimilarity(question, qa.question.toLowerCase());
@@ -499,24 +540,24 @@ class QuestionUnderstanding {
                 }
             }
         }
-        
+
         return bestMatch;
     }
-    
+
     calculateSimilarity(str1, str2) {
         const words1 = str1.split(' ');
         const words2 = str2.split(' ');
-        
-        const commonWords = words1.filter(word => 
+
+        const commonWords = words1.filter(word =>
             words2.some(w2 => w2.includes(word) || word.includes(w2))
         );
-        
+
         return commonWords.length / Math.max(words1.length, words2.length);
     }
-    
+
     getSuggestionsBasedOnKeywords(keywords) {
         const suggestions = [];
-        
+
         keywords.forEach(keyword => {
             for (const [mapKeyword, question] of Object.entries(this.keywordMapping)) {
                 if (keyword.includes(mapKeyword) || mapKeyword.includes(keyword)) {
@@ -526,8 +567,8 @@ class QuestionUnderstanding {
                 }
             }
         });
-        
-        return suggestions.slice(0, 3); // Return top 3 suggestions
+
+        return suggestions.slice(0, 3);
     }
 }
 
@@ -536,7 +577,7 @@ class RepeatQuestionDetector {
     constructor() {
         this.questionHistory = new Map();
         this.maxRepeats = 3;
-        this.timeWindow = 5 * 60 * 1000; // 5 minutes
+        this.timeWindow = 5 * 60 * 1000;
     }
 
     checkRepeat(question) {
@@ -550,7 +591,6 @@ class RepeatQuestionDetector {
 
         const record = this.questionHistory.get(key);
 
-        // Remove old records
         if (now - record.lastAsked > this.timeWindow) {
             record.count = 1;
             record.lastAsked = now;
@@ -617,12 +657,10 @@ class EnhancedSpellChecker {
     correctSpelling(text) {
         let corrected = text.toLowerCase();
 
-        // Replace common mistakes
         for (const [wrong, correct] of Object.entries(this.commonMistakes)) {
             corrected = corrected.replace(new RegExp(wrong, 'g'), correct);
         }
 
-        // Fix repeated characters (like "develooopment" -> "development")
         corrected = corrected.replace(/([a-z])\1{2,}/g, '$1$1');
 
         return corrected !== text.toLowerCase() ? corrected : null;
@@ -651,7 +689,6 @@ class FastQuestionSearch {
     initializeIndex() {
         console.time("Indexing Questions");
 
-        // Index all questions from sections
         for (const sectionKey in chatbotSections) {
             const section = chatbotSections[sectionKey];
             section.questions.forEach(qa => {
@@ -659,7 +696,6 @@ class FastQuestionSearch {
             });
         }
 
-        // Index general QA
         for (const [question, answer] of Object.entries(generalQA)) {
             this.addToIndex(question, answer, 'general');
         }
@@ -671,10 +707,8 @@ class FastQuestionSearch {
     addToIndex(question, answer, type) {
         const key = question.toLowerCase().trim();
 
-        // Store in question index
         this.questionIndex.set(key, { answer, type, originalQuestion: question });
 
-        // Create keyword index for faster partial matching
         const words = this.extractKeywords(question);
         words.forEach(word => {
             if (!this.keywordIndex.has(word)) {
@@ -694,11 +728,9 @@ class FastQuestionSearch {
         return [...new Set(words)];
     }
 
-    // ENHANCED SEARCH ALGORITHM
     findAnswer(userQuestion) {
         const lowerQuestion = userQuestion.toLowerCase().trim();
 
-        // 1. Check exact match (fastest)
         if (this.questionIndex.has(lowerQuestion)) {
             const result = this.questionIndex.get(lowerQuestion);
             return {
@@ -709,7 +741,6 @@ class FastQuestionSearch {
             };
         }
 
-        // 2. Check with spelling correction
         const spellChecker = new EnhancedSpellChecker();
         const corrected = spellChecker.correctSpelling(userQuestion);
         if (corrected && this.questionIndex.has(corrected)) {
@@ -724,7 +755,6 @@ class FastQuestionSearch {
             };
         }
 
-        // 3. Check keyword matches
         const userKeywords = this.extractKeywords(userQuestion);
         const keywordMatches = this.findByKeywords(userKeywords);
 
@@ -740,7 +770,6 @@ class FastQuestionSearch {
             };
         }
 
-        // 4. Fallback to similarity matching
         return this.findBySimilarity(lowerQuestion);
     }
 
@@ -766,7 +795,7 @@ class FastQuestionSearch {
 
     findBySimilarity(lowerQuestion) {
         let bestMatch = null;
-        let bestSimilarity = 0.5; // Lower threshold for better matching
+        let bestSimilarity = 0.5;
 
         for (const [questionKey, data] of this.questionIndex) {
             const similarity = getSimilarity(lowerQuestion, questionKey);
@@ -831,9 +860,7 @@ function getSimilarity(str1, str2) {
     return 1 - (distance / maxLength);
 }
 
-// ===============================
 // DRAGGABLE CHATBOT FUNCTIONALITY
-// ===============================
 class DraggableChatbot {
     constructor() {
         this.isDragging = false;
@@ -845,20 +872,19 @@ class DraggableChatbot {
         this.yOffset = 0;
         this.chatBox = null;
         this.chatHeader = null;
-        
+
         this.init();
     }
 
     init() {
         this.chatBox = document.querySelector('.balvirt-chatbot-box');
         this.chatHeader = document.querySelector('.balvirt-chatbot-header');
-        
+
         if (!this.chatBox || !this.chatHeader) {
             console.error('Chatbot elements not found for dragging');
             return;
         }
 
-        // Make chatbot draggable only on desktop
         if (this.isDesktopDevice()) {
             this.makeDraggable();
         }
@@ -870,7 +896,7 @@ class DraggableChatbot {
 
     makeDraggable() {
         this.chatHeader.style.cursor = 'move';
-        
+
         this.chatHeader.addEventListener('mousedown', (e) => {
             this.dragStart(e);
         });
@@ -883,7 +909,6 @@ class DraggableChatbot {
             this.dragEnd();
         });
 
-        // Touch events for mobile dragging (optional)
         this.chatHeader.addEventListener('touchstart', (e) => {
             this.dragStart(e.touches[0]);
         });
@@ -900,16 +925,14 @@ class DraggableChatbot {
     dragStart(e) {
         this.initialX = e.clientX - this.xOffset;
         this.initialY = e.clientY - this.yOffset;
-        
+
         if (e.target === this.chatHeader || this.chatHeader.contains(e.target)) {
             this.isDragging = true;
-            
-            // Add dragging style
+
             this.chatBox.style.transition = 'none';
             this.chatBox.style.cursor = 'grabbing';
             this.chatHeader.style.cursor = 'grabbing';
-            
-            // Bring to front
+
             this.chatBox.style.zIndex = '10001';
         }
     }
@@ -917,7 +940,7 @@ class DraggableChatbot {
     drag(e) {
         if (this.isDragging) {
             e.preventDefault();
-            
+
             this.currentX = e.clientX - this.initialX;
             this.currentY = e.clientY - this.initialY;
 
@@ -932,13 +955,11 @@ class DraggableChatbot {
         this.initialX = this.currentX;
         this.initialY = this.currentY;
         this.isDragging = false;
-        
-        // Restore styles
+
         this.chatBox.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
         this.chatBox.style.cursor = 'default';
         this.chatHeader.style.cursor = 'move';
-        
-        // Save position for next time
+
         this.savePosition();
     }
 
@@ -964,25 +985,21 @@ class DraggableChatbot {
     }
 }
 
-// ENHANCED findAnswer FUNCTION WITH QUESTION UNDERSTANDING
+// FIXED findAnswer FUNCTION - CLEAN RESPONSES
 function findAnswer(userQuestion) {
     const startTime = performance.now();
 
-    // Check for repeated questions
     const repeatCheck = repeatDetector.checkRepeat(userQuestion);
 
-    // First, try to understand the question
     const understanding = questionUnderstanding.understandQuestion(userQuestion);
-    
+
     console.log('Question Understanding Result:', understanding);
 
     let result;
     if (understanding.understood) {
-        // Use the understood question to find answer
         result = fastSearch.findAnswer(understanding.suggestedQuestion);
         result.understanding = understanding;
     } else {
-        // Fall back to traditional search
         result = fastSearch.findAnswer(userQuestion);
     }
 
@@ -1008,32 +1025,30 @@ function findAnswer(userQuestion) {
     };
 }
 
-// INTELLIGENT RESPONSE FOR UNRECOGNIZED QUESTIONS
+// FIXED INTELLIGENT RESPONSE
 function getIntelligentResponse(question, understanding) {
     const keywords = understanding.keywords || [];
-    
-    // If we have keywords but couldn't map them perfectly
+
     if (keywords.length > 0) {
         const suggestions = questionUnderstanding.getSuggestionsBasedOnKeywords(keywords);
-        
+
         if (suggestions.length > 0) {
-            let response = `I understand you're asking about <strong>"${question}"</strong>. While I don't have a specific answer for that, I think you might be interested in:<br><br>`;
-            
+            let response = `I'm not sure about "<strong>${question}</strong>" 🤔<br><br>Here are some related topics that might help:<br><br>`;
+
             suggestions.forEach((suggestion, index) => {
                 response += `${index + 1}. <button class="balvirt-suggestion-btn" onclick="askQuestion('${suggestion}')" style="background: none; border: none; color: #007bff; text-decoration: underline; cursor: pointer;">${suggestion}</button><br>`;
             });
-            
-            response += `<br>Or you can browse our sections above for more specific information.`;
+
+            response += `<br>Or browse our sections above for more information.`;
             return response;
         }
     }
-    
-    // Default fallback response
-    return `I'm not sure about "<strong>${question}</strong>" 🤔. <br><br>I understand you're asking about: <strong>${keywords.join(', ') || 'this topic'}</strong>. Please try:<br>
+
+    return `I'm not sure about "<strong>${question}</strong>" 🤔<br><br>Please try:<br>
     • Asking in a different way<br>
     • Choosing from the suggested questions above<br>
     • Browsing our service sections<br><br>
-    If you still need help, visit our Contact page and our team will assist you personally 💬.`;
+    For immediate assistance, contact us: 📞 +91 9665521708 📧 contact@balvirt.com`;
 }
 
 // Time-based Greeting
@@ -1041,9 +1056,9 @@ function getTimeBasedGreeting() {
     const now = new Date();
     const hour = now.getHours();
     const day = now.getDay();
-    
+
     let greeting = "";
-    
+
     if (hour >= 5 && hour < 12) {
         greeting = "<span style='color:#0074D9;'>Good morning </span><br>Let's make today productive and full of new ideas!<br>";
     } else if (hour >= 12 && hour < 17) {
@@ -1069,7 +1084,7 @@ function getTimeBasedGreeting() {
     return `${greeting} ${dayMessage}<span style='color:navy;'>Welcome to Balvirt Technologies!</span>`;
 }
 
-// ADD QUICK RESPONSE BUTTONS FOR COMMON QUESTIONS
+// ADD QUICK RESPONSE BUTTONS
 function addQuickResponseButtons() {
     const quickQuestions = [
         "What services do you offer?",
@@ -1128,13 +1143,10 @@ function initializeChatbot() {
 
     let currentSection = "home";
 
-    // Initialize draggable chatbot
     const draggableChatbot = new DraggableChatbot();
 
-    // Initialize with home section
     loadSectionWithGreeting(currentSection);
 
-    // Event Listeners
     chatIcon.addEventListener("click", function (e) {
         e.stopPropagation();
         toggleChatbot();
@@ -1145,7 +1157,6 @@ function initializeChatbot() {
         closeChatbot();
     });
 
-    // Navigation tabs
     navTabs.forEach(tab => {
         tab.addEventListener("click", function (e) {
             e.stopPropagation();
@@ -1154,7 +1165,6 @@ function initializeChatbot() {
         });
     });
 
-    // Send message functionality
     sendBtn.addEventListener("click", function (e) {
         e.stopPropagation();
         sendMessage();
@@ -1167,22 +1177,16 @@ function initializeChatbot() {
         }
     });
 
-    // Close chatbot when clicking outside (but not when dragging)
     document.addEventListener('click', function (e) {
-        if (!e.target.closest('.balvirt-chatbot-box') && 
+        if (!e.target.closest('.balvirt-chatbot-box') &&
             !e.target.closest('.balvirt-chatbot-icon') &&
             !draggableChatbot.isDragging) {
             closeChatbot();
         }
     });
 
-    // Auto-open after 5 seconds
-    setTimeout(function () {
-        if (!sessionStorage.getItem('chatbotInteracted')) {
-            openChatbot();
-            sessionStorage.setItem('chatbotInteracted', 'true');
-        }
-    }, 5000);
+    // REMOVED AUTO-OPEN FEATURE - Chatbot will only open when clicked
+    // This prevents automatic opening after 5 seconds
 
     function toggleChatbot() {
         if (chatBox.classList.contains("balvirt-chatbot-hidden")) {
@@ -1198,8 +1202,7 @@ function initializeChatbot() {
         setTimeout(() => {
             chatBox.classList.add("balvirt-chatbot-show");
             chatInput.focus();
-            
-            // Load saved position
+
             draggableChatbot.loadPosition();
         }, 10);
     }
@@ -1240,7 +1243,6 @@ Discover our solutions, explore services, or ask how we can help transform your 
         `;
         chatMessages.innerHTML += greetingHTML;
 
-        // Initialize quick buttons
         initializeQuickButtons();
     }
 
@@ -1260,12 +1262,10 @@ Discover our solutions, explore services, or ask how we can help transform your 
                 addBotMessage(questionHTML, true);
             });
 
-            // Initialize question buttons
             initializeQuestionButtons();
         }
     }
 
-    // Event delegation for quick buttons
     function initializeQuickButtons() {
         chatMessages.removeEventListener('click', handleQuickButtonClick);
         chatMessages.addEventListener('click', handleQuickButtonClick);
@@ -1279,7 +1279,6 @@ Discover our solutions, explore services, or ask how we can help transform your 
         }
     }
 
-    // Event delegation for question buttons
     function initializeQuestionButtons() {
         chatMessages.removeEventListener('click', handleQuestionButtonClick);
         chatMessages.addEventListener('click', handleQuestionButtonClick);
@@ -1293,14 +1292,13 @@ Discover our solutions, explore services, or ask how we can help transform your 
         }
     }
 
-    // ENHANCED askQuestion FUNCTION WITH INTELLIGENT RESPONSES
+    // FIXED askQuestion FUNCTION - CLEAN RESPONSES
     function askQuestion(question) {
         if (chatInput.disabled) return;
-        
+
         addUserMessage(question);
         showTyping();
 
-        // Disable input during processing
         chatInput.disabled = true;
         sendBtn.disabled = true;
 
@@ -1310,40 +1308,28 @@ Discover our solutions, explore services, or ask how we can help transform your 
 
             let finalAnswer = "";
 
-            // Handle repeat questions
             if (result.isRepeat && result.repeatCount >= 3) {
                 finalAnswer = repeatDetector.getRepeatMessage(question, result.repeatCount);
             }
-            // Handle spelling corrections
             else if (result.type === 'spelling_corrected') {
-                const suggestion = spellChecker.suggestCorrection(result.original, result.correction);
-                finalAnswer = `${suggestion}<br><br>${result.answer}`;
+                finalAnswer = result.answer;
             }
-            // Handle question understanding results
-            else if (result.understanding && result.understanding.type === 'keyword_mapping') {
-                finalAnswer = `I understand you're asking about <strong>${question}</strong>. ${result.answer}`;
-            }
-            // Handle similarity matches
             else if (result.type === 'similarity' && result.similarity < 0.8) {
-                finalAnswer = `I think you meant "<strong>${result.matchedQuestion}</strong>"?<br><br>${result.answer}`;
+                finalAnswer = result.answer;
             }
-            // Handle not found with intelligent response
             else if (result.type === 'not_found') {
                 finalAnswer = result.answer;
             }
-            // Exact or good match
             else {
                 finalAnswer = result.answer;
             }
 
             addBotMessage(finalAnswer, true);
 
-            // Re-enable input
             chatInput.disabled = false;
             sendBtn.disabled = false;
             chatInput.focus();
 
-            // Log for debugging
             console.log('Question Analysis:', {
                 question,
                 type: result.type,
@@ -1520,17 +1506,8 @@ const additionalCSS = `
     color: #0056b3;
 }
 
-/* Ensure chatbot button is visible by default */
 .balvirt-chatbot-icon {
     display: flex !important;
-}
-
-/* Disabled state for buttons */
-.balvirt-quick-btn:disabled,
-.balvirt-chatbot-question-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none !important;
 }
 
 .balvirt-chatbot-box {
@@ -1542,7 +1519,6 @@ const additionalCSS = `
     -webkit-user-select: none;
 }
 
-/* Disable dragging on mobile */
 @media (max-width: 768px) {
     .balvirt-chatbot-header {
         cursor: default !important;
@@ -1550,9 +1526,6 @@ const additionalCSS = `
 }
 `;
 
-// Inject CSS
 const style = document.createElement('style');
 style.textContent = additionalCSS;
 document.head.appendChild(style);
-
-console.log('Balvirt Chatbot Loaded with Enhanced Question Understanding! Improved response system for unrecognized questions.');

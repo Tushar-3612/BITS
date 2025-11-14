@@ -1,4 +1,4 @@
-// chatbot.js - COMPLETE FIXED CODE WITH CORRECT ANSWER MAPPING
+// chatbot.js - COMPLETE FIXED CODE WITH AUTO-OPEN REMOVED AND SCROLL FIXED
 
 // Chatbot Questions and Answers Database
 const chatbotSections = {
@@ -184,7 +184,7 @@ const chatbotSections = {
             },
             {
                 question: "What are Balvirt's achievements?",
-                answer: "We've successfully delivered 100+ projects, helped numerous businesses grow digitally, and maintained long-term partnerships with our clients."
+                answer: "We've successfully delivered 205+ projects, helped numerous businesses grow digitally, and maintained long-term partnerships with our clients."
             }
         ]
     },
@@ -225,9 +225,9 @@ const generalQA = {
     "hi": "Hello 👋 Welcome to Balvirt! How can I assist you today?",
     "hello": "Hey there 👋 Welcome to Balvirt! How can I help you?",
     "hey": "Hi 👋 I'm your virtual assistant from Balvirt Technologies!",
-    "good morning": "Wishing you a productive and inspiring start to your day!<br>Let's create something amazing together — how can I assist you today?",
-    "good afternoon": "Hope your day's going well!<br>I'm here to help you explore Balvirt's digital solutions or answer any questions you have.",
-    "good evening": "Good evening 🌇<br>As the day winds down, innovation never stops at Balvirt.<br>How may I assist you in achieving your next digital goal tonight?",
+    "good morning": "Good Morning,<br>Wishing you a productive and inspiring start to your day!<br>Let's create something amazing together — how can I assist you today?",
+    "good afternoon": "Good Afteroon,<br>Hope your day's going well!<br>I'm here to help you explore Balvirt's digital solutions or answer any questions you have.",
+    "good evening": "Good evening,<br>As the day winds down, innovation never stops at Balvirt.<br>How may I assist you in achieving your next digital goal tonight?",
     "good night":"Wishing you a peaceful night ahead from Balvirt ✨<br>Innovation never stops, but even creators need rest. See you refreshed and ready to build the future! 🌌",
 
     // About the bot
@@ -1185,12 +1185,8 @@ function initializeChatbot() {
         }
     });
 
-    setTimeout(function () {
-        if (!sessionStorage.getItem('chatbotInteracted')) {
-            openChatbot();
-            sessionStorage.setItem('chatbotInteracted', 'true');
-        }
-    }, 5000);
+    // REMOVED AUTO-OPEN FEATURE - Chatbot will only open when clicked
+    // This prevents automatic opening after 5 seconds
 
     function toggleChatbot() {
         if (chatBox.classList.contains("balvirt-chatbot-hidden")) {
@@ -1534,7 +1530,7 @@ const style = document.createElement('style');
 style.textContent = additionalCSS;
 document.head.appendChild(style);
 
-// Smooth scroll detection for chatbot
+// FIXED Smooth scroll detection for chatbot - UPDATED TO 190px
 let lastScrollTop = 0;
 const chatbotIcon = document.querySelector('.balvirt-chatbot-icon');
 
@@ -1542,10 +1538,10 @@ if (chatbotIcon) {
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        if (scrollTop > 150 && lastScrollTop <= 150) {
+        if (scrollTop > 190 && lastScrollTop <= 190) {
             chatbotIcon.style.bottom = '120px';
             chatbotIcon.style.transform = 'scale(1.1)';
-        } else if (scrollTop <= 150 && lastScrollTop > 150) {
+        } else if (scrollTop <= 190 && lastScrollTop > 190) {
             chatbotIcon.style.bottom = '20px';
             chatbotIcon.style.transform = 'scale(1)';
         }
@@ -1553,4 +1549,5 @@ if (chatbotIcon) {
         lastScrollTop = scrollTop;
     }, {passive: true});
 }
-console.log('Balvirt Chatbot Loaded with Fixed Answer Mapping! All questions now give correct answers.');
+
+console.log('Balvirt Chatbot Loaded with Fixed Auto-Open and Scroll Behavior! Chatbot will only open when clicked.');
